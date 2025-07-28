@@ -9,6 +9,13 @@ var is_hovered: bool = false
 
 #Workspace shenanigans
 var optionsVar:OptionButton
+var editMenu:Control
+var titleLineEdit:LineEdit
+var authorLineEdit:LineEdit
+var madeInLabel:Label
+var createdLabel:Label
+var updatedLabel:Label
+var _workspace_index_to_id: Dictionary = {}
 
 #Workspaces
 var _workspace_ID:String
@@ -30,12 +37,19 @@ func _ready():
 	background = get_node("Background")
 	holder = get_node("Holder")
 	optionsVar = get_node("MarginContainer/HBoxContainer/OptionButton")
+	editMenu = get_node("Edit Menu")
+	titleLineEdit = get_node("Edit Menu/MarginContainer/VBoxContainer/Title")
+	authorLineEdit = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Author")
+	madeInLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Made In")
+	createdLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Created")
+	updatedLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Updated")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
+	
 	connect("mouse_entered", _on_mouse_entered)
 	connect("mouse_exited", _on_mouse_exited)
 
-	_workspace_ID = generate_new_workspace_id()
+	auto_populate_metadata()
 	populate_workspace_options()
 	optionsVar.connect("item_selected", Callable(self, "_on_workspace_selected"))
 	
@@ -195,6 +209,7 @@ func load_everything():
 	game_title = resource.get_value("meta", "game_title", "Untitled Game")
 	time_created = resource.get_value("meta", "time_created", "")
 	last_updated = resource.get_value("meta", "last_updated", "")
+	_update_edit_menu_labels()
 
 	print("Loaded workspace metadata:")
 	print("Save Name: ", save_name)
@@ -240,15 +255,26 @@ func clear_holder():
 	
 func populate_workspace_options():
 	optionsVar.clear()
+	_workspace_index_to_id.clear()
+
 	optionsVar.add_item("New Workspace")
+	_workspace_index_to_id[0] = null  # Index 0 is reserved for "New Workspace"
 
 	var dir := DirAccess.open("user://My Precious Save Files")
 	if dir:
 		dir.list_dir_begin()
 		var name = dir.get_next()
+		var index = 1  # Start from 1 to skip "New Workspace"
 		while name != "":
 			if dir.current_is_dir() and name != "." and name != "..":
-				optionsVar.add_item(name)
+				var metadata_path = "user://My Precious Save Files/" + name + "/node_workspace.tres"
+				var config = ConfigFile.new()
+				var save_label = name
+				if config.load(metadata_path) == OK:
+					save_label = config.get_value("meta", "save_name", name) + " (" + name + ")"
+				optionsVar.add_item(save_label)
+				_workspace_index_to_id[index] = name
+				index += 1
 			name = dir.get_next()
 		dir.list_dir_end()
 
@@ -257,16 +283,45 @@ func _on_workspace_selected(index: int):
 
 	if index == 0:  # New Workspace
 		clear_holder()
-		_workspace_ID = generate_new_workspace_id()
-		save_name = "My Save"
-		author_name = "Unnamed Author"
-		version = ProjectSettings.get_setting("application/config/version")
-		game_title = ProjectSettings.get_setting("application/config/name")
-		time_created = ""
-		last_updated = ""
+		auto_populate_metadata()
 		print("Created new workspace: ", _workspace_ID)
 	else:
-		var selected_name = optionsVar.get_item_text(index)
-		_workspace_ID = selected_name
+		if _workspace_index_to_id.has(index):
+			_workspace_ID = _workspace_index_to_id[index]
+		else:
+			push_error("Invalid workspace selection index: " + str(index))
+			return
 		clear_holder()
 		load_everything()
+
+func auto_populate_metadata():
+	_workspace_ID = generate_new_workspace_id()
+	save_name = "My Save"
+	author_name = "Unnamed Author"
+	version = ProjectSettings.get_setting("application/config/version")
+	game_title = ProjectSettings.get_setting("application/config/name")
+	time_created = ""
+	last_updated = ""
+	_update_edit_menu_labels()
+
+func _update_edit_menu_labels():
+	titleLineEdit.text = save_name
+	authorLineEdit.text = author_name
+	madeInLabel.text = "Made in " + game_title + " v" + version
+	if time_created == "":
+		createdLabel.text = "Not Saved Yet"
+		updatedLabel.text = ""
+	else:
+		createdLabel.text = "Created: " + time_created
+		updatedLabel.text = "Last Updated: " + last_updated
+	
+func _edit_button_toggled():
+	editMenu.visible = !editMenu.visible
+	
+func title_changed(titleName:String):
+	if titleName != save_name:
+		save_name = titleName
+	
+func author_changed(authortext:String):
+	if authortext != author_name:
+		author_name = authortext

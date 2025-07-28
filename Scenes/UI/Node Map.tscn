@@ -63,8 +63,7 @@ item_count = 1
 popup/item_0/text = "Test"
 popup/item_0/id = 0
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
-visible = false
+[node name="Button4" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Edit"
 
@@ -88,5 +87,66 @@ offset_bottom = -53.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="Edit Menu" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -95.0
+offset_right = 200.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Edit Menu"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Edit Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="LineEdit" parent="Edit Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Save Title"
+
+[node name="MarginContainer" type="MarginContainer" parent="Edit Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Edit Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Author" type="LineEdit" parent="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Author"
+
+[node name="Made In" type="Label" parent="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Made in Give-LIFE v.0.0.0.0.0.0.1"
+
+[node name="Created" type="Label" parent="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Created: 10:00pm July 24th"
+
+[node name="Updated" type="Label" parent="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Last Updated: 2:00pm December 9th"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button4" to="." method="_edit_button_toggled"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button2" to="." method="save_everything"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Button3" to="Search" method="toggleSearch"]
+[connection signal="text_changed" from="Edit Menu/MarginContainer/VBoxContainer/Title" to="." method="title_changed"]
+[connection signal="text_changed" from="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Author" to="." method="author_changed"]

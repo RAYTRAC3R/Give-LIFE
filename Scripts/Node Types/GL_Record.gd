@@ -2,6 +2,7 @@ extends GL_Node
 class_name GL_Record
 var timer:float
 const sampleRate = 0.05
+const lerpCutoffRate = 0.25
 var recording:Dictionary
 var oldTime:float = 0.000030042452 #sorta random number
 var time:float = 0
@@ -66,7 +67,18 @@ func _traverse():
 				if(typeof(rows[key]["output"]) == TYPE_BOOL || rows[key]["output"] is GL_AudioType):
 					rows[key]["output"] = recording[key]["list"][recording[key]["current"]]["value"]
 				elif(typeof(rows[key]["output"]) == TYPE_FLOAT):
-					rows[key]["output"] = lerp(float(recording[key]["list"][recording[key]["lastUsed"]]["value"]),float(recording[key]["list"][recording[key]["current"]]["value"]),remap_time(time,recording[key]["list"][recording[key]["lastUsed"]]["time"],recording[key]["list"][recording[key]["current"]]["time"]))
+					var a = float(recording[key]["list"][recording[key]["lastUsed"]]["value"])
+					var b = float(recording[key]["list"][recording[key]["current"]]["value"])
+					var diff = abs(b - a)
+					if diff <= lerpCutoffRate:
+						var t = remap_time(
+							time,
+							recording[key]["list"][recording[key]["lastUsed"]]["time"],
+							recording[key]["list"][recording[key]["current"]]["time"]
+						)
+						rows[key]["output"] = lerp(a, b, t)
+					else:
+						rows[key]["output"] = a
 				elif(typeof(rows[key]["output"]) == TYPE_COLOR):
 					rows[key]["output"] = lerp(recording[key]["list"][recording[key]["lastUsed"]]["value"],recording[key]["list"][recording[key]["current"]]["value"],remap_time(time,recording[key]["list"][recording[key]["lastUsed"]]["time"],recording[key]["list"][recording[key]["current"]]["time"]))
 
