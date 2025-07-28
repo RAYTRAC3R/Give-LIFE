@@ -105,6 +105,9 @@ func _input(event: InputEvent) -> void:
 				zoom_factor = 0.9
 
 			holder.scale *= zoom_factor
+			
+			holder.scale.x = clamp(holder.scale.x, 0.1, 10.0)
+			holder.scale.y = clamp(holder.scale.y, 0.1, 10.0)	
 
 			var new_global_xform = holder.get_global_transform()
 			var new_local_mouse_pos = new_global_xform.affine_inverse().basis_xform(mouse_pos)
