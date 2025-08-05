@@ -1,0 +1,343 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm4wgtmgyci17"]
+
+[ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Fonts/Themes/Default.tres" id="1_ory21"]
+[ext_resource type="Texture2D" uid="uid://cvudj0qai2hrn" path="res://UI/Nodes/Backing.jpg" id="2_j3kos"]
+[ext_resource type="Script" uid="uid://d0xp5idbh7y7v" path="res://Scripts/Pause_Menu.gd" id="2_q5xte"]
+[ext_resource type="Texture2D" uid="uid://dwgnmfn6864ro" path="res://UI/thelogogreen.png" id="3_2glbi"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ory21")
+script = ExtResource("2_q5xte")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j3kos")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Version Number" type="Label" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "v.test"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Title Screen" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/PanelContainer/Title Screen"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = ExtResource("3_2glbi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/Title Screen"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Start Button" type="Button" parent="MarginContainer/PanelContainer/Title Screen"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Boot Simulator"
+
+[node name="Settings" type="Button" parent="MarginContainer/PanelContainer/Title Screen"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MarginContainer/PanelContainer/Title Screen"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+
+[node name="Settings" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings"]
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/Settings/Settings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/Settings/Settings"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+
+[node name="General" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Username" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Unknown Author"
+placeholder_text = "My Name"
+alignment = 2
+
+[node name="Show Pressed Keys" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show Pressed Keys"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys"]
+layout_mode = 2
+
+[node name="Boot on Start" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Boot On Start"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Title Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Simulator"
+popup/item_1/id = 1
+popup/item_2/text = "Editor"
+popup/item_2/id = 2
+
+[node name="Physics Bones" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Physics Bones"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Physics Bones"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Physics Bones"]
+layout_mode = 2
+
+[node name="Graphical" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Window Mode" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window Mode"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 1
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 2
+
+[node name="Audio" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Master Volume" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+[node name="Control" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ESC - Pause
+Tab - Toggle Editor
+WASD: Move
+Space: Jump
+Q: Slow Speed
+Shift: Sprint Speed
+E: Toggle Flashlight
+        Hold + Scroll: Change Flashlight Size
+Hold Ctrl + Scroll: Change Camera Zoom
+Hold Alt + Scroll: Change Camera Tilt
+R: Smooth Out Movement Toggle
+        Hold + Scroll: Change Smooth Amount
+F: Smooth Out Camera Toggle
+        Hold + Scroll: Change Smooth Amount
+V: Fly
+	Q: Descend
+	Space: Ascend
+(Temporary) H: Toggle Cosmetics"
+
+[node name="Credits" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Credits/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Made by The 64th Gamer
+
+Iterated from the DEAD Engine
+and RR Engine
+
+Open-Source Code:
+github.com/The64thGamer/Give-LIFE
+
+GNU General Public License v3.0"
+
+[node name="Control2" type="Control" parent="MarginContainer/PanelContainer/Settings/Settings"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Back Button" type="Button" parent="MarginContainer/PanelContainer/Settings/Settings"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Start Button" to="." method="_on_simulator_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Settings" to="." method="switchMenu" binds= ["settings"]]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Exit" to="." method="_on_quit_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username/LineEdit" to="." method="_on_line_edit_changed" binds= ["username"]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys/CheckButton" to="." method="_on_button_changed" binds= ["show_key_presses"]]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start/OptionButton" to="." method="_on_option_changed" binds= ["boot_on_start"]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Physics Bones/CheckButton" to="." method="_on_button_changed" binds= ["physics_bones"]]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode/OptionButton" to="." method="_on_option_changed" binds= ["window_mode"]]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume/HSlider" to="." method="_on_slider_changed" binds= ["master_volume"]]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Settings/Settings/Back Button" to="." method="switchMenu" binds= ["title"]]

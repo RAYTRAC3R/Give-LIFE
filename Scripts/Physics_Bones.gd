@@ -73,10 +73,11 @@ enum BonePreset {
 	"apron l": BonePreset.SLOW_HAIR,
 	"spine": BonePreset.ANIMATRONIC_MOVEMENT_HEAVY,
 }
-
+var currentPhysicsToggle = true
 var skeleton: Skeleton3D = null
 
 func _ready():
+	add_to_group("SettingsReceivers")
 	skeleton = find_skeleton(self)
 	if skeleton == null:
 		push_error("No Skeleton3D found in children!")
@@ -108,7 +109,7 @@ func apply_physics_bone_to(bone_name: String, preset: BonePreset) -> void:
 	set_preset_parameters(bone_physics, preset)
 
 	skeleton.add_child(bone_physics)
-	bone_physics.owner = get_tree().current_scene
+	bone_physics.owner = get_parent()
 
 func set_preset_parameters(pb: DMWBWiggleRotationModifier3D, preset: BonePreset) -> void:
 	pb.properties = DMWBWiggleRotationProperties3D.new()
@@ -159,3 +160,14 @@ func _toggle_visibility_recursive(node: Node):
 				child.visible = true
 		# Recursively process all children
 		_toggle_visibility_recursive(child)
+		
+func on_settings_applied(settings: Dictionary):
+	if currentPhysicsToggle != settings["physics_bones"]:
+		set_physics_bones_enabled(settings["physics_bones"])
+	
+
+func set_physics_bones_enabled(enable: bool):
+	currentPhysicsToggle = enable
+	for child in skeleton.get_children(true):
+		if child is DMWBWiggleRotationModifier3D or child is DMWBWigglePositionModifier3D:
+			child.active = enable

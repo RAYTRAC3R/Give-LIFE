@@ -33,7 +33,6 @@ func _notification(what):
 		save_everything()
 
 func _ready():
-	visible = false
 	background = get_node("Background")
 	holder = get_node("Holder")
 	optionsVar = get_node("MarginContainer/HBoxContainer/OptionButton")
@@ -42,9 +41,7 @@ func _ready():
 	authorLineEdit = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Author")
 	madeInLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Made In")
 	createdLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Created")
-	updatedLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Updated")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	updatedLabel = get_node("Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Updated")	
 	
 	connect("mouse_entered", _on_mouse_entered)
 	connect("mouse_exited", _on_mouse_exited)
@@ -71,19 +68,7 @@ func _process(delta):
 		background.material.set_shader_parameter("uv_scale", scale)
 		background.material.set_shader_parameter("uv_offset", offset)
 
-
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		match event.keycode:
-			KEY_ESCAPE:
-				visible = not visible
-			KEY_TAB:
-				background.visible = !background.visible
-	if not visible:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
 	if not is_hovered:
 		return
 
@@ -119,6 +104,10 @@ func _input(event: InputEvent) -> void:
 		var delta = event.position - last_mouse_pos
 		holder.position += delta
 		last_mouse_pos = event.position
+
+
+func toggle_background():
+	background.visible = !background.visible
 
 func save_everything():
 	var saveDict := {}
