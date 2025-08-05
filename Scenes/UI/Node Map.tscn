@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c57u187iciexi"]
+[gd_scene load_steps=12 format=3 uid="uid://c57u187iciexi"]
 
 [ext_resource type="Script" uid="uid://i4p62x8fnqpn" path="res://Scripts/GL_Node_Map.gd" id="1_jyqbx"]
 [ext_resource type="PackedScene" uid="uid://mowdu1i1rldt" path="res://Scenes/UI/Search.tscn" id="1_xwfut"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c1iaey3sulam2" path="res://UI/Icons/eye-solid-full.svg" id="4_x1ecx"]
 [ext_resource type="Texture2D" uid="uid://bjp6oqfovb8yk" path="res://UI/Icons/floppy-disk-solid-full.svg" id="5_df00g"]
 [ext_resource type="Texture2D" uid="uid://cnypso3xtadic" path="res://UI/Icons/magnifying-glass-solid-full.svg" id="6_ci56e"]
+[ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="8_df00g"]
+[ext_resource type="Texture2D" uid="uid://c7e2wn02ty2xx" path="res://UI/Icons/file-import-solid-full.svg" id="9_ci56e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1m68g"]
 shader = ExtResource("2_x1ecx")
@@ -53,6 +55,44 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Toggle Background" type="Button" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Toggle Background"
+text = "     "
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer2/Toggle Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_x1ecx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Search" type="Button" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+tooltip_text = "Search Nodes"
+text = "     "
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer2/Search"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ci56e")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -100,36 +140,35 @@ texture = ExtResource("5_df00g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Search" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Share" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Search Nodes"
+tooltip_text = "Export Save File for Sharing"
 text = "     "
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Search"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Share"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_ci56e")
+texture = ExtResource("8_df00g")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Toggle Background" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="Import" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Toggle Background"
+tooltip_text = "Import External Save File"
 text = "     "
-expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Toggle Background"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Import"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_x1ecx")
+texture = ExtResource("9_ci56e")
 expand_mode = 1
 stretch_mode = 5
 
@@ -203,9 +242,27 @@ text = "Created: 10:00pm July 24th"
 layout_mode = 2
 text = "Last Updated: 2:00pm December 9th"
 
+[node name="ExportDialog" type="FileDialog" parent="."]
+size = Vector2i(1086, 360)
+access = 2
+filters = PackedStringArray("*.zip")
+
+[node name="ImportDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(1086, 360)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.zip")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/Toggle Background" to="." method="toggle_background"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/Search" to="Search" method="toggleSearch"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Edit" to="." method="_edit_button_toggled"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Save" to="." method="save_everything"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Search" to="Search" method="toggleSearch"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Toggle Background" to="." method="toggle_background"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Share" to="." method="export_workspace_zip"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Import" to="." method="import_workspace_zip"]
 [connection signal="text_changed" from="Edit Menu/MarginContainer/VBoxContainer/Title" to="." method="title_changed"]
 [connection signal="text_changed" from="Edit Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Author" to="." method="author_changed"]
+[connection signal="file_selected" from="ExportDialog" to="." method="_on_exportDialog_file_selected"]
+[connection signal="file_selected" from="ImportDialog" to="." method="_on_importDialog_file_selected"]

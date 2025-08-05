@@ -6,6 +6,7 @@ var usernameLineEdit: LineEdit
 var showPressedKeysButton: CheckButton
 var bootOnStartOptions: OptionButton
 var windowModeOptions: OptionButton
+var msaaOptions: OptionButton
 var volumeSlider: Slider
 var physicsbonesButton: CheckButton
 
@@ -21,23 +22,30 @@ var currentSettings := {
 	"username": "Unknown Author",
 	"master_volume": 100,
 	"physics_bones": true,
+	"msaa_3d": Viewport.MSAA_2X,
 }
 
 const settingsPath := "user://Settings/"
 const settingsFilePath := settingsPath + "user_settings.cfg"
 
 var editorInstance: Node = null
+var keypressInstance: Node = null
 var nodeMapScene: PackedScene
 var simulatorScene: PackedScene
+var keypresssScene: PackedScene
 var simulatorInstance: Node = null
 
 func _ready():
 	nodeMapScene = load("res://Scenes/UI/Node Map.tscn")
 	simulatorScene = load("res://Scenes/Levels/FDs.tscn")
+	keypresssScene = load("res://Scenes/UI/Key Presses.tscn")
 
 	editorInstance = nodeMapScene.instantiate()
 	get_tree().root.add_child.call_deferred(editorInstance)
-
+	keypressInstance = keypresssScene.instantiate()
+	get_tree().root.add_child.call_deferred(keypressInstance)
+	await editorInstance.ready
+	await keypressInstance.ready
 	versionNumber = get_node("MarginContainer/PanelContainer/Version Number")
 	titleScreenMenu = get_node("MarginContainer/PanelContainer/Title Screen")
 	settingsMenu = get_node("MarginContainer/PanelContainer/Settings")
@@ -45,9 +53,10 @@ func _ready():
 	showPressedKeysButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys/CheckButton")
 	bootOnStartOptions = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start/OptionButton")
 	windowModeOptions = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode/OptionButton")
+	msaaOptions = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Anti-Aliasing/OptionButton")
 	volumeSlider = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume/HSlider")
 	simulatorButton = get_node("MarginContainer/PanelContainer/Title Screen/Start Button")
-	physicsbonesButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Physics Bones/CheckButton")
+	physicsbonesButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Physics Bones/CheckButton")
 	versionNumber.text = "v" + ProjectSettings.get_setting("application/config/version")
 
 	load_settings()
@@ -142,10 +151,12 @@ func apply_settings():
 		usernameLineEdit.text = currentSettings["username"]
 	bootOnStartOptions.selected = currentSettings["boot_on_start"]
 	windowModeOptions.selected = currentSettings["window_mode"]
+	msaaOptions.selected = currentSettings["msaa_3d"]
 	volumeSlider.set_value_no_signal(currentSettings["master_volume"])
 	showPressedKeysButton.set_pressed_no_signal(currentSettings["show_key_presses"])
 	physicsbonesButton.set_pressed_no_signal(currentSettings["physics_bones"])
-	
+	var vp = get_tree().root
+	vp.msaa_3d = currentSettings["msaa_3d"]
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(currentSettings["master_volume"]))
 	
 	get_tree().call_group("SettingsReceivers", "on_settings_applied", currentSettings)

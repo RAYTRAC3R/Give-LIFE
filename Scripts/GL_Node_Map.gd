@@ -15,6 +15,8 @@ var authorLineEdit:LineEdit
 var madeInLabel:Label
 var createdLabel:Label
 var updatedLabel:Label
+@onready var exportDialog: FileDialog = $ExportDialog
+@onready var importDialog: FileDialog = $ImportDialog
 var _workspace_index_to_id: Dictionary = {}
 
 #Workspaces
@@ -317,3 +319,97 @@ func title_changed(titleName:String):
 func author_changed(authortext:String):
 	if authortext != author_name:
 		author_name = authortext
+
+func export_workspace_zip():
+	if _workspace_ID == "":
+		push_error("No workspace ID to export.")
+		return
+
+	var workspace_path = "user://My Precious Save Files/" + _workspace_ID
+	var dir := DirAccess.open(workspace_path)
+	if dir == null:
+		push_error("Could not open workspace folder.")
+		return
+
+	exportDialog.current_file = save_name + "_" + _workspace_ID + ".zip"
+	exportDialog.popup_centered()
+
+func _on_exportDialog_file_selected(clicked_path: String) -> void:
+	var safe_path = sanitize_filename_from_path(clicked_path)
+	var save_dir = safe_path.get_base_dir()
+	DirAccess.make_dir_recursive_absolute(save_dir)
+
+	var writer = ZIPPacker.new()
+	var err = writer.open(safe_path, ZIPPacker.APPEND_CREATE)
+	if err != OK:
+		push_error("Failed to create zip: %s (error %d)" % [safe_path, err])
+		return
+
+	var workspace_root = "user://My Precious Save Files/" + _workspace_ID + "/"
+	var files = _get_all_files_recursive(workspace_root)
+	for rel in files:
+		writer.start_file(rel)
+		writer.write_file(FileAccess.get_file_as_bytes(workspace_root + rel))
+		writer.close_file()  # MUST close each file before starting next
+	writer.close()
+	print("✅ Exported workspace to %s" % safe_path)
+
+
+func sanitize_filename_from_path(path: String) -> String:
+	var filename = path.get_file()
+	var sanitized := ""
+	for c in filename:
+		if c in "/\\:*?\"<>|":
+			sanitized += "_"
+		else:
+			sanitized += c
+	
+	return path.get_base_dir().path_join(sanitized)
+
+
+func import_workspace_zip():
+	importDialog.popup_centered()
+
+func _on_importDialog_file_selected(path: String):
+	var zip := ZIPReader.new()
+	if zip.open(path) != OK:
+		push_error("Failed to open zip file.")
+		return
+
+	if not zip.file_exists("node_workspace.tres"):
+		push_error("Zip does not contain a valid node_workspace.tres file.")
+		return
+
+	var new_id = generate_new_workspace_id()
+	var new_folder = "user://My Precious Save Files/" + new_id + "/"
+	DirAccess.make_dir_recursive_absolute(new_folder)
+
+	for i in zip.get_files():
+		var file_path = new_folder + i
+		var data = zip.read_file(i)
+		var file = FileAccess.open(file_path, FileAccess.WRITE)
+		if file:
+			file.store_buffer(data)
+			file.close()
+		else:
+			push_error("Failed to write file: " + file_path)
+
+	_workspace_index_to_id[optionsVar.item_count] = new_id
+	populate_workspace_options()
+	print("Imported workspace as ID: ", new_id)
+
+func _get_all_files_recursive(base_path: String) -> PackedStringArray:
+	var files: PackedStringArray = []
+	var dir = DirAccess.open(base_path)
+	if dir == null:
+		return files
+
+	dir.include_hidden = false
+	dir.list_dir_begin()
+	var name = dir.get_next()
+	while name != "":
+		if not dir.current_is_dir():
+			files.append(name)
+		name = dir.get_next()
+	dir.list_dir_end()
+	return files
