@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://03io62ffg5i7"]
 
 [ext_resource type="PackedScene" uid="uid://b0arjg8r75f8y" path="res://Scenes/Nodes/Node.tscn" id="1_w45a2"]
-[ext_resource type="Script" uid="uid://byqidgk64eqpc" path="res://Mods/Faz Anim 2/Custom Assets/Node Scripts/GL_Sawtooth.gd" id="2_w45a2"]
+[ext_resource type="Script" uid="uid://byqidgk64eqpc" path="res://Mods/Standard Nodes/Custom Assets/Node Scripts/GL_Sawtooth.gd" id="2_w45a2"]
 
 [node name="Node" type="Control"]
 layout_mode = 3

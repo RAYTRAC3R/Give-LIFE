@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0g3ls7hffy0" path="res://Scripts/Player/PlayerMovement.gd" id="1_fkybt"]
 [ext_resource type="Material" uid="uid://o4fe7jj6qk7v" path="res://addons/Godot-4-Color-Correction-and-Screen-Effects-main/Materials and Shaders/Shade.tres" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://c5kxam0k3beml" path="res://Mods/Faz Anim 2/Custom Assets/Node Scripts/GL_Speaker.gd" id="3_3smsa"]
+[ext_resource type="Script" uid="uid://c5kxam0k3beml" path="res://Mods/Standard Nodes/Custom Assets/Node Scripts/GL_Speaker.gd" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://ktqnj6yjrsbn" path="res://UI/Flashlight.png" id="4_8erm5"]
 [ext_resource type="Script" uid="uid://r3akx4cd0pjd" path="res://Scripts/Player/Flashlight.gd" id="5_f1ek2"]
 
