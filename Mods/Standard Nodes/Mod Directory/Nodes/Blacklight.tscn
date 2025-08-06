@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://orb8ktn8fpup"]
 
 [ext_resource type="PackedScene" uid="uid://b0arjg8r75f8y" path="res://Scenes/Nodes/Node.tscn" id="1_jwmxn"]
-[ext_resource type="Script" uid="uid://dbqob0b43rqef" path="res://Mods/Give Life/Custom Assets/Node Scripts/GL_Blacklight.gd" id="2_jwmxn"]
+[ext_resource type="Script" uid="uid://dbqob0b43rqef" path="res://Mods/Faz Anim 2/Custom Assets/Node Scripts/GL_Blacklight.gd" id="2_jwmxn"]
 
 [node name="Node" type="Control"]
 layout_mode = 3
