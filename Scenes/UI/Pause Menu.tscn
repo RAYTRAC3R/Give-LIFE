@@ -587,8 +587,61 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
+[node name="Map Menu" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Mods" type="VBoxContainer" parent="MarginContainer/PanelContainer/Map Menu"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
+layout_mode = 2
+text = "Maps"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("5_q5xte")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Map Menu/Mods/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/Map Menu/Mods/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Map Holder" type="VBoxContainer" parent="MarginContainer/PanelContainer/Map Menu/Mods/PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Back Button" type="Button" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Start Button" to="." method="_on_simulator_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Mods" to="." method="_on_simulator_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Mods" to="." method="switchMenu" binds= ["mods"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Settings" to="." method="switchMenu" binds= ["settings"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Exit" to="." method="_on_quit_button_pressed"]
 [connection signal="text_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username/LineEdit" to="." method="_on_line_edit_changed" binds= ["username"]]
@@ -600,3 +653,4 @@ text = "Back"
 [connection signal="value_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume/HSlider" to="." method="_on_slider_changed" binds= ["master_volume"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Settings/Settings/Back Button" to="." method="switchMenu" binds= ["title"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Mod Menu/Mods/Back Button" to="." method="switchMenu" binds= ["title"]]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Map Menu/Mods/Back Button" to="." method="switchMenu" binds= ["title"]]
