@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0nvkndyqp3xl"
-path.s3tc="res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-1de30c2dea6ea8597169e3a6742ba47c.s3tc.ctex"
-path.etc2="res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-1de30c2dea6ea8597169e3a6742ba47c.etc2.ctex"
+path.s3tc="res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-960a2731145e9138e212c49064436d08.s3tc.ctex"
+path.etc2="res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-960a2731145e9138e212c49064436d08.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/rock_embedded_tiles_rough_4k.jpg"
-dest_files=["res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-1de30c2dea6ea8597169e3a6742ba47c.s3tc.ctex", "res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-1de30c2dea6ea8597169e3a6742ba47c.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/rock_embedded_tiles_rough_4k.jpg"
+dest_files=["res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-960a2731145e9138e212c49064436d08.s3tc.ctex", "res://.godot/imported/rock_embedded_tiles_rough_4k.jpg-960a2731145e9138e212c49064436d08.etc2.ctex"]
 
 [params]
 

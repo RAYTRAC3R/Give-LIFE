@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qx23t33vmle"
-path.s3tc="res://.godot/imported/Chica Mech Head_MaskMap.png-ae2a4c6166a13b9b13147ffd83f887c3.s3tc.ctex"
-path.etc2="res://.godot/imported/Chica Mech Head_MaskMap.png-ae2a4c6166a13b9b13147ffd83f887c3.etc2.ctex"
+path.s3tc="res://.godot/imported/Chica Mech Head_MaskMap.png-e016ba50842dfdb560dad3f385e77a06.s3tc.ctex"
+path.etc2="res://.godot/imported/Chica Mech Head_MaskMap.png-e016ba50842dfdb560dad3f385e77a06.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Chica Mech Head_MaskMap.png"
-dest_files=["res://.godot/imported/Chica Mech Head_MaskMap.png-ae2a4c6166a13b9b13147ffd83f887c3.s3tc.ctex", "res://.godot/imported/Chica Mech Head_MaskMap.png-ae2a4c6166a13b9b13147ffd83f887c3.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica Mech Head_MaskMap.png"
+dest_files=["res://.godot/imported/Chica Mech Head_MaskMap.png-e016ba50842dfdb560dad3f385e77a06.s3tc.ctex", "res://.godot/imported/Chica Mech Head_MaskMap.png-e016ba50842dfdb560dad3f385e77a06.etc2.ctex"]
 
 [params]
 

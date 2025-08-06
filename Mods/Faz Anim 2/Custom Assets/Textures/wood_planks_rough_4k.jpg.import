@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdlwkj5wux0iq"
-path.s3tc="res://.godot/imported/wood_planks_rough_4k.jpg-57ee6bf6359147cdad22a8935ea1ae4d.s3tc.ctex"
-path.etc2="res://.godot/imported/wood_planks_rough_4k.jpg-57ee6bf6359147cdad22a8935ea1ae4d.etc2.ctex"
+path.s3tc="res://.godot/imported/wood_planks_rough_4k.jpg-d99decb608546053d7f2e8a73d2622e9.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_planks_rough_4k.jpg-d99decb608546053d7f2e8a73d2622e9.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/wood_planks_rough_4k.jpg"
-dest_files=["res://.godot/imported/wood_planks_rough_4k.jpg-57ee6bf6359147cdad22a8935ea1ae4d.s3tc.ctex", "res://.godot/imported/wood_planks_rough_4k.jpg-57ee6bf6359147cdad22a8935ea1ae4d.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/wood_planks_rough_4k.jpg"
+dest_files=["res://.godot/imported/wood_planks_rough_4k.jpg-d99decb608546053d7f2e8a73d2622e9.s3tc.ctex", "res://.godot/imported/wood_planks_rough_4k.jpg-d99decb608546053d7f2e8a73d2622e9.etc2.ctex"]
 
 [params]
 

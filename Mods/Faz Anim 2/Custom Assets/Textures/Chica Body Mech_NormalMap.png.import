@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btavyn4d2mi38"
-path.s3tc="res://.godot/imported/Chica Body Mech_NormalMap.png-d1aee372484c42cd4646ec3f0d072b3c.s3tc.ctex"
-path.etc2="res://.godot/imported/Chica Body Mech_NormalMap.png-d1aee372484c42cd4646ec3f0d072b3c.etc2.ctex"
+path.s3tc="res://.godot/imported/Chica Body Mech_NormalMap.png-81c292f4206686fbd271e780dd11d1ad.s3tc.ctex"
+path.etc2="res://.godot/imported/Chica Body Mech_NormalMap.png-81c292f4206686fbd271e780dd11d1ad.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Chica Body Mech_NormalMap.png"
-dest_files=["res://.godot/imported/Chica Body Mech_NormalMap.png-d1aee372484c42cd4646ec3f0d072b3c.s3tc.ctex", "res://.godot/imported/Chica Body Mech_NormalMap.png-d1aee372484c42cd4646ec3f0d072b3c.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica Body Mech_NormalMap.png"
+dest_files=["res://.godot/imported/Chica Body Mech_NormalMap.png-81c292f4206686fbd271e780dd11d1ad.s3tc.ctex", "res://.godot/imported/Chica Body Mech_NormalMap.png-81c292f4206686fbd271e780dd11d1ad.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://heaosayfawt"
-path.s3tc="res://.godot/imported/Cupcake_BlacklightMap.png-e7885dd48328f4cc3ed422bdfd0b8a22.s3tc.ctex"
-path.etc2="res://.godot/imported/Cupcake_BlacklightMap.png-e7885dd48328f4cc3ed422bdfd0b8a22.etc2.ctex"
+path.s3tc="res://.godot/imported/Cupcake_BlacklightMap.png-1e2506e19a81a84e01f77d4c7256cb9e.s3tc.ctex"
+path.etc2="res://.godot/imported/Cupcake_BlacklightMap.png-1e2506e19a81a84e01f77d4c7256cb9e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cupcake_BlacklightMap.png"
-dest_files=["res://.godot/imported/Cupcake_BlacklightMap.png-e7885dd48328f4cc3ed422bdfd0b8a22.s3tc.ctex", "res://.godot/imported/Cupcake_BlacklightMap.png-e7885dd48328f4cc3ed422bdfd0b8a22.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cupcake_BlacklightMap.png"
+dest_files=["res://.godot/imported/Cupcake_BlacklightMap.png-1e2506e19a81a84e01f77d4c7256cb9e.s3tc.ctex", "res://.godot/imported/Cupcake_BlacklightMap.png-1e2506e19a81a84e01f77d4c7256cb9e.etc2.ctex"]
 
 [params]
 

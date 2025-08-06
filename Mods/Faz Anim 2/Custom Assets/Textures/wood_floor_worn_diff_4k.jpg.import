@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mdo70351vk1j"
-path.s3tc="res://.godot/imported/wood_floor_worn_diff_4k.jpg-fa523b4f6eefb03527256a49a47b5066.s3tc.ctex"
-path.etc2="res://.godot/imported/wood_floor_worn_diff_4k.jpg-fa523b4f6eefb03527256a49a47b5066.etc2.ctex"
+path.s3tc="res://.godot/imported/wood_floor_worn_diff_4k.jpg-e1b4f88cba3c33358a0d58775713853c.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_floor_worn_diff_4k.jpg-e1b4f88cba3c33358a0d58775713853c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/wood_floor_worn_diff_4k.jpg"
-dest_files=["res://.godot/imported/wood_floor_worn_diff_4k.jpg-fa523b4f6eefb03527256a49a47b5066.s3tc.ctex", "res://.godot/imported/wood_floor_worn_diff_4k.jpg-fa523b4f6eefb03527256a49a47b5066.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/wood_floor_worn_diff_4k.jpg"
+dest_files=["res://.godot/imported/wood_floor_worn_diff_4k.jpg-e1b4f88cba3c33358a0d58775713853c.s3tc.ctex", "res://.godot/imported/wood_floor_worn_diff_4k.jpg-e1b4f88cba3c33358a0d58775713853c.etc2.ctex"]
 
 [params]
 

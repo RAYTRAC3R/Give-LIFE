@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bptt4yvv5mx1c"
-path="res://.godot/imported/Cig Pack Fizzy Fags.fbx-e022a5694db969b0c9c91684e0b68ce2.scn"
+path="res://.godot/imported/Cig Pack Fizzy Fags.fbx-b5aa79fa79f18ae1701b712818023ff0.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Cig Pack Fizzy Fags.fbx"
-dest_files=["res://.godot/imported/Cig Pack Fizzy Fags.fbx-e022a5694db969b0c9c91684e0b68ce2.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Cig Pack Fizzy Fags.fbx"
+dest_files=["res://.godot/imported/Cig Pack Fizzy Fags.fbx-b5aa79fa79f18ae1701b712818023ff0.scn"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2njms16g6vfl"
-path.bptc="res://.godot/imported/Cupcake_Main.png-8aff2cec3cf1420943495dcec6bdf92e.bptc.ctex"
-path.astc="res://.godot/imported/Cupcake_Main.png-8aff2cec3cf1420943495dcec6bdf92e.astc.ctex"
+path.bptc="res://.godot/imported/Cupcake_Main.png-b1c7ccfd395d2243a2fa19235c6dfc74.bptc.ctex"
+path.astc="res://.godot/imported/Cupcake_Main.png-b1c7ccfd395d2243a2fa19235c6dfc74.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cupcake_Main.png"
-dest_files=["res://.godot/imported/Cupcake_Main.png-8aff2cec3cf1420943495dcec6bdf92e.bptc.ctex", "res://.godot/imported/Cupcake_Main.png-8aff2cec3cf1420943495dcec6bdf92e.astc.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cupcake_Main.png"
+dest_files=["res://.godot/imported/Cupcake_Main.png-b1c7ccfd395d2243a2fa19235c6dfc74.bptc.ctex", "res://.godot/imported/Cupcake_Main.png-b1c7ccfd395d2243a2fa19235c6dfc74.astc.ctex"]
 
 [params]
 

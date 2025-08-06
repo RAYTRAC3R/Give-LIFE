@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://38l34vtyo45c"
-path="res://.godot/imported/Cig Pack Purple High.fbx-fa456ee7ce985201146f572a736dc1c3.scn"
+path="res://.godot/imported/Cig Pack Purple High.fbx-f2baf621e74d30d2c0160d18e972dafd.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Cig Pack Purple High.fbx"
-dest_files=["res://.godot/imported/Cig Pack Purple High.fbx-fa456ee7ce985201146f572a736dc1c3.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Cig Pack Purple High.fbx"
+dest_files=["res://.godot/imported/Cig Pack Purple High.fbx-f2baf621e74d30d2c0160d18e972dafd.scn"]
 
 [params]
 

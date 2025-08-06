@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbb3kepsn3048"
-path.s3tc="res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-ba35c110e4da38ee1c02227ffba16730.s3tc.ctex"
-path.etc2="res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-ba35c110e4da38ee1c02227ffba16730.etc2.ctex"
+path.s3tc="res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-488db837800af1be7d50e1989dfbee90.s3tc.ctex"
+path.etc2="res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-488db837800af1be7d50e1989dfbee90.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/lightbulb off credit Mārtiņš Akmanis.png"
-dest_files=["res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-ba35c110e4da38ee1c02227ffba16730.s3tc.ctex", "res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-ba35c110e4da38ee1c02227ffba16730.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/lightbulb off credit Mārtiņš Akmanis.png"
+dest_files=["res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-488db837800af1be7d50e1989dfbee90.s3tc.ctex", "res://.godot/imported/lightbulb off credit Mārtiņš Akmanis.png-488db837800af1be7d50e1989dfbee90.etc2.ctex"]
 
 [params]
 

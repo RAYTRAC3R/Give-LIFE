@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://df8nvcksrxt2l"
-path="res://.godot/imported/cylinders.fbx-ec83813b2e69c0c1da2cd1d4a1af24c0.scn"
+path="res://.godot/imported/cylinders.fbx-61ad750e9154efbd366e77d1d284e81c.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Other/cylinders.fbx"
-dest_files=["res://.godot/imported/cylinders.fbx-ec83813b2e69c0c1da2cd1d4a1af24c0.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Other/cylinders.fbx"
+dest_files=["res://.godot/imported/cylinders.fbx-61ad750e9154efbd366e77d1d284e81c.scn"]
 
 [params]
 

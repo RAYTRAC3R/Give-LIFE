@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6mfu77yyc3c4"
-path.s3tc="res://.godot/imported/wood_planks_diff_4k.jpg-8a57ed8bb19fe99ff7b887e4859edbfb.s3tc.ctex"
-path.etc2="res://.godot/imported/wood_planks_diff_4k.jpg-8a57ed8bb19fe99ff7b887e4859edbfb.etc2.ctex"
+path.s3tc="res://.godot/imported/wood_planks_diff_4k.jpg-9ad57b3d0eda493ad8ec6863c3a59f4e.s3tc.ctex"
+path.etc2="res://.godot/imported/wood_planks_diff_4k.jpg-9ad57b3d0eda493ad8ec6863c3a59f4e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/wood_planks_diff_4k.jpg"
-dest_files=["res://.godot/imported/wood_planks_diff_4k.jpg-8a57ed8bb19fe99ff7b887e4859edbfb.s3tc.ctex", "res://.godot/imported/wood_planks_diff_4k.jpg-8a57ed8bb19fe99ff7b887e4859edbfb.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/wood_planks_diff_4k.jpg"
+dest_files=["res://.godot/imported/wood_planks_diff_4k.jpg-9ad57b3d0eda493ad8ec6863c3a59f4e.s3tc.ctex", "res://.godot/imported/wood_planks_diff_4k.jpg-9ad57b3d0eda493ad8ec6863c3a59f4e.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkndbb6ne6g62"
-path.s3tc="res://.godot/imported/Cig_Machine_PaintMap.png-7f536bcbb65ebcbab4ea04d73e2bd559.s3tc.ctex"
-path.etc2="res://.godot/imported/Cig_Machine_PaintMap.png-7f536bcbb65ebcbab4ea04d73e2bd559.etc2.ctex"
+path.s3tc="res://.godot/imported/Cig_Machine_PaintMap.png-80ee58809d711167f776b1613ff60132.s3tc.ctex"
+path.etc2="res://.godot/imported/Cig_Machine_PaintMap.png-80ee58809d711167f776b1613ff60132.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cig_Machine_PaintMap.png"
-dest_files=["res://.godot/imported/Cig_Machine_PaintMap.png-7f536bcbb65ebcbab4ea04d73e2bd559.s3tc.ctex", "res://.godot/imported/Cig_Machine_PaintMap.png-7f536bcbb65ebcbab4ea04d73e2bd559.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cig_Machine_PaintMap.png"
+dest_files=["res://.godot/imported/Cig_Machine_PaintMap.png-80ee58809d711167f776b1613ff60132.s3tc.ctex", "res://.godot/imported/Cig_Machine_PaintMap.png-80ee58809d711167f776b1613ff60132.etc2.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kq0thiofqcj8"
-path.s3tc="res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-e255492a2364abae3967f0b081a71961.s3tc.ctex"
-path.etc2="res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-e255492a2364abae3967f0b081a71961.etc2.ctex"
+path.s3tc="res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-aea62701a0c1a1f77e073ea4a545571b.s3tc.ctex"
+path.etc2="res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-aea62701a0c1a1f77e073ea4a545571b.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Possessed Mr Hugs Canon_MaskMap.png"
-dest_files=["res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-e255492a2364abae3967f0b081a71961.s3tc.ctex", "res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-e255492a2364abae3967f0b081a71961.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Possessed Mr Hugs Canon_MaskMap.png"
+dest_files=["res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-aea62701a0c1a1f77e073ea4a545571b.s3tc.ctex", "res://.godot/imported/Possessed Mr Hugs Canon_MaskMap.png-aea62701a0c1a1f77e073ea4a545571b.etc2.ctex"]
 
 [params]
 

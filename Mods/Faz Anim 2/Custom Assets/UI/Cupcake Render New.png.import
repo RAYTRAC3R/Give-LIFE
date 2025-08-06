@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv2j5b4mqj2f5"
-path="res://.godot/imported/Chica Mech Head_BlacklightMap.png-e2005667049062ad0d219f28e43ebc54.ctex"
+uid="uid://dbks4b5g5irbc"
+path="res://.godot/imported/Cupcake Render New.png-93190439d3589fe1b27602fcd36b88dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica Mech Head_BlacklightMap.png"
-dest_files=["res://.godot/imported/Chica Mech Head_BlacklightMap.png-e2005667049062ad0d219f28e43ebc54.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/UI/Cupcake Render New.png"
+dest_files=["res://.godot/imported/Cupcake Render New.png-93190439d3589fe1b27602fcd36b88dd.ctex"]
 
 [params]
 

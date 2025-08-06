@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://sygmf36qkuxp"
-path="res://.godot/imported/Cigarette Single Half Smoked.fbx-286ace20ecf5517270e64e193aa2f7b7.scn"
+path="res://.godot/imported/Cigarette Single Half Smoked.fbx-cca35d87729aeccdde6ee49a2a2f051e.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Cigarette Single Half Smoked.fbx"
-dest_files=["res://.godot/imported/Cigarette Single Half Smoked.fbx-286ace20ecf5517270e64e193aa2f7b7.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Cigarette Single Half Smoked.fbx"
+dest_files=["res://.godot/imported/Cigarette Single Half Smoked.fbx-cca35d87729aeccdde6ee49a2a2f051e.scn"]
 
 [params]
 

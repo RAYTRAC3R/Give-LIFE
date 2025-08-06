@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4tsfnqgmt016"
-path="res://.godot/imported/Map Icon.png-98d430045247e172ee2fb7b353cb57a6.ctex"
+path="res://.godot/imported/Map Icon.png-71475dd882cbe072464370744a37a600.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Give Life/Mod Directory/Maps/FDs/Map Icon.png"
-dest_files=["res://.godot/imported/Map Icon.png-98d430045247e172ee2fb7b353cb57a6.ctex"]
+source_file="res://Mods/Faz Anim 2/Mod Directory/Maps/FDs/Map Icon.png"
+dest_files=["res://.godot/imported/Map Icon.png-71475dd882cbe072464370744a37a600.ctex"]
 
 [params]
 

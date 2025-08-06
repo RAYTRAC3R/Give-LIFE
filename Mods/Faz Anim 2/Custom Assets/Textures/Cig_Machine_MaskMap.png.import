@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k48ny4uh1vyk"
-path.s3tc="res://.godot/imported/Cig_Machine_MaskMap.png-cfeb35690c71cf4a2f33a71a88dfa7da.s3tc.ctex"
-path.etc2="res://.godot/imported/Cig_Machine_MaskMap.png-cfeb35690c71cf4a2f33a71a88dfa7da.etc2.ctex"
+path.s3tc="res://.godot/imported/Cig_Machine_MaskMap.png-f0f0d4aa1567bb82a8d6faf1a9290bcb.s3tc.ctex"
+path.etc2="res://.godot/imported/Cig_Machine_MaskMap.png-f0f0d4aa1567bb82a8d6faf1a9290bcb.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cig_Machine_MaskMap.png"
-dest_files=["res://.godot/imported/Cig_Machine_MaskMap.png-cfeb35690c71cf4a2f33a71a88dfa7da.s3tc.ctex", "res://.godot/imported/Cig_Machine_MaskMap.png-cfeb35690c71cf4a2f33a71a88dfa7da.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cig_Machine_MaskMap.png"
+dest_files=["res://.godot/imported/Cig_Machine_MaskMap.png-f0f0d4aa1567bb82a8d6faf1a9290bcb.s3tc.ctex", "res://.godot/imported/Cig_Machine_MaskMap.png-f0f0d4aa1567bb82a8d6faf1a9290bcb.etc2.ctex"]
 
 [params]
 

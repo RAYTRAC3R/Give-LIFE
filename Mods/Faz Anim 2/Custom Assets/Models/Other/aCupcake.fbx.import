@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://gyotcpgjltlo"
-path="res://.godot/imported/aCupcake.fbx-8103d7017c629ff9a2f26af2f36cdbd1.scn"
+path="res://.godot/imported/aCupcake.fbx-65ca2072226a713b2288254d66392282.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Other/aCupcake.fbx"
-dest_files=["res://.godot/imported/aCupcake.fbx-8103d7017c629ff9a2f26af2f36cdbd1.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Other/aCupcake.fbx"
+dest_files=["res://.godot/imported/aCupcake.fbx-65ca2072226a713b2288254d66392282.scn"]
 
 [params]
 

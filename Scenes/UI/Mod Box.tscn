@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://celpts3vf8nhv"]
+
+[ext_resource type="Theme" uid="uid://cuyeyw4lvn5op" path="res://UI/Fonts/Themes/Theme Node NoShadow.tres" id="1_pojng"]
+[ext_resource type="Theme" uid="uid://csctk60s8jar3" path="res://UI/Fonts/Themes/Theme Node Inner.tres" id="2_gix35"]
+[ext_resource type="Texture2D" uid="uid://bumrryxwwf62o" path="res://UI/IconGreen.png" id="3_6rte5"]
+
+[node name="Mod Box" type="MarginContainer"]
+offset_right = 367.0
+offset_bottom = 83.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_pojng")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme = ExtResource("2_gix35")
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_6rte5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mod Name"
+clip_text = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2

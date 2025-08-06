@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b2mp0s2k2gp3g"
-path="res://.godot/imported/Cig Machine.fbx-77f13ca8430896d6f90173210579f30d.scn"
+path="res://.godot/imported/Cig Machine.fbx-244e5bcf300fab7d8ff245c6ee3b6101.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Arcade/Cig Machine.fbx"
-dest_files=["res://.godot/imported/Cig Machine.fbx-77f13ca8430896d6f90173210579f30d.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Arcade/Cig Machine.fbx"
+dest_files=["res://.godot/imported/Cig Machine.fbx-244e5bcf300fab7d8ff245c6ee3b6101.scn"]
 
 [params]
 

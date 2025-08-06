@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bu3cf620necik"
-path="res://.godot/imported/thechica.fbx-2a176193a5c0f62d580faef19847e2a6.scn"
+path="res://.godot/imported/thechica.fbx-032c560446825daa06ac9722b498b05f.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Other/thechica.fbx"
-dest_files=["res://.godot/imported/thechica.fbx-2a176193a5c0f62d580faef19847e2a6.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Other/thechica.fbx"
+dest_files=["res://.godot/imported/thechica.fbx-032c560446825daa06ac9722b498b05f.scn"]
 
 [params]
 

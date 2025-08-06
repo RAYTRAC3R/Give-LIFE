@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k5nphbxum0ns"
-path.s3tc="res://.godot/imported/Alternate Cylinders_Main.png-db393a5aa130a7adca4cc83c5fc384eb.s3tc.ctex"
-path.etc2="res://.godot/imported/Alternate Cylinders_Main.png-db393a5aa130a7adca4cc83c5fc384eb.etc2.ctex"
+path.s3tc="res://.godot/imported/Alternate Cylinders_Main.png-6374dcc425a39b3e9c1ee43b76067a17.s3tc.ctex"
+path.etc2="res://.godot/imported/Alternate Cylinders_Main.png-6374dcc425a39b3e9c1ee43b76067a17.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Alternate Cylinders_Main.png"
-dest_files=["res://.godot/imported/Alternate Cylinders_Main.png-db393a5aa130a7adca4cc83c5fc384eb.s3tc.ctex", "res://.godot/imported/Alternate Cylinders_Main.png-db393a5aa130a7adca4cc83c5fc384eb.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Alternate Cylinders_Main.png"
+dest_files=["res://.godot/imported/Alternate Cylinders_Main.png-6374dcc425a39b3e9c1ee43b76067a17.s3tc.ctex", "res://.godot/imported/Alternate Cylinders_Main.png-6374dcc425a39b3e9c1ee43b76067a17.etc2.ctex"]
 
 [params]
 

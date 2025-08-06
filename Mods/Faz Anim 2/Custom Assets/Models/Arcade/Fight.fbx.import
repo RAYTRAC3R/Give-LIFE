@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cm6xii444sjb2"
-path="res://.godot/imported/Fight.fbx-d1a93cb206f2897eae65b9453af1b412.scn"
+path="res://.godot/imported/Fight.fbx-3b7c5082a560120172dc6ca178df2912.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Arcade/Fight.fbx"
-dest_files=["res://.godot/imported/Fight.fbx-d1a93cb206f2897eae65b9453af1b412.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Arcade/Fight.fbx"
+dest_files=["res://.godot/imported/Fight.fbx-3b7c5082a560120172dc6ca178df2912.scn"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chvwlqg282ej2"
-path="res://.godot/imported/lightbulb on credit Mārtiņš Akmanis.png-abe524ff8bf0d6906d9316eeb1a0acaf.ctex"
+path="res://.godot/imported/lightbulb on credit Mārtiņš Akmanis.png-ecdb0f882255cf7aa1e88b25458d01f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/lightbulb on credit Mārtiņš Akmanis.png"
-dest_files=["res://.godot/imported/lightbulb on credit Mārtiņš Akmanis.png-abe524ff8bf0d6906d9316eeb1a0acaf.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/lightbulb on credit Mārtiņš Akmanis.png"
+dest_files=["res://.godot/imported/lightbulb on credit Mārtiņš Akmanis.png-ecdb0f882255cf7aa1e88b25458d01f3.ctex"]
 
 [params]
 

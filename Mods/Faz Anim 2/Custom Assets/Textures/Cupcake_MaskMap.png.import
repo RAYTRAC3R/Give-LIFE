@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds153o06s3h2o"
-path.bptc="res://.godot/imported/Cupcake_MaskMap.png-7209ebccca05a6ba4869f959d49f6ed5.bptc.ctex"
-path.astc="res://.godot/imported/Cupcake_MaskMap.png-7209ebccca05a6ba4869f959d49f6ed5.astc.ctex"
+path.bptc="res://.godot/imported/Cupcake_MaskMap.png-e6947d1cfc8f35d3874363c75e534e80.bptc.ctex"
+path.astc="res://.godot/imported/Cupcake_MaskMap.png-e6947d1cfc8f35d3874363c75e534e80.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cupcake_MaskMap.png"
-dest_files=["res://.godot/imported/Cupcake_MaskMap.png-7209ebccca05a6ba4869f959d49f6ed5.bptc.ctex", "res://.godot/imported/Cupcake_MaskMap.png-7209ebccca05a6ba4869f959d49f6ed5.astc.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cupcake_MaskMap.png"
+dest_files=["res://.godot/imported/Cupcake_MaskMap.png-e6947d1cfc8f35d3874363c75e534e80.bptc.ctex", "res://.godot/imported/Cupcake_MaskMap.png-e6947d1cfc8f35d3874363c75e534e80.astc.ctex"]
 
 [params]
 

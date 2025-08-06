@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bmpy247wq63fx"
-path="res://.godot/imported/Cig Pack Goongalar Cigars.fbx-bf80099b5ddcdcbf6f67448a7fbe95c9.scn"
+path="res://.godot/imported/Cig Pack Goongalar Cigars.fbx-6a3f47205e272192551cba217a6b6fea.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Cig Pack Goongalar Cigars.fbx"
-dest_files=["res://.godot/imported/Cig Pack Goongalar Cigars.fbx-bf80099b5ddcdcbf6f67448a7fbe95c9.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Cig Pack Goongalar Cigars.fbx"
+dest_files=["res://.godot/imported/Cig Pack Goongalar Cigars.fbx-6a3f47205e272192551cba217a6b6fea.scn"]
 
 [params]
 

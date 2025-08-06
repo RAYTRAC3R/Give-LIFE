@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://r8r2f6v6d1wi"
-path.s3tc="res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-dedce12637463a7aa7dfd334926eee21.s3tc.ctex"
-path.etc2="res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-dedce12637463a7aa7dfd334926eee21.etc2.ctex"
+path.s3tc="res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-2b3214fbff7aa47f368b4bb5bc12fa53.s3tc.ctex"
+path.etc2="res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-2b3214fbff7aa47f368b4bb5bc12fa53.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Cylinders_Cylinders Grime_BaseMap.png"
-dest_files=["res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-dedce12637463a7aa7dfd334926eee21.s3tc.ctex", "res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-dedce12637463a7aa7dfd334926eee21.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Cylinders_Cylinders Grime_BaseMap.png"
+dest_files=["res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-2b3214fbff7aa47f368b4bb5bc12fa53.s3tc.ctex", "res://.godot/imported/Cylinders_Cylinders Grime_BaseMap.png-2b3214fbff7aa47f368b4bb5bc12fa53.etc2.ctex"]
 
 [params]
 

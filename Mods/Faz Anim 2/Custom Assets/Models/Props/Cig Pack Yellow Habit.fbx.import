@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://clrko8cieord"
-path="res://.godot/imported/Cig Pack Yellow Habit.fbx-5fc31ea40a51eac3503fded1e6a321da.scn"
+path="res://.godot/imported/Cig Pack Yellow Habit.fbx-358ac5d03a2aca191405bb54b2d993aa.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Cig Pack Yellow Habit.fbx"
-dest_files=["res://.godot/imported/Cig Pack Yellow Habit.fbx-5fc31ea40a51eac3503fded1e6a321da.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Cig Pack Yellow Habit.fbx"
+dest_files=["res://.godot/imported/Cig Pack Yellow Habit.fbx-358ac5d03a2aca191405bb54b2d993aa.scn"]
 
 [params]
 

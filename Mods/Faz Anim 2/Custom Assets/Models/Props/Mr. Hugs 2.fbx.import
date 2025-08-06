@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ceevf34i7lohs"
-path="res://.godot/imported/Mr. Hugs 2.fbx-afa9785e90a618e77269049d08fac162.scn"
+path="res://.godot/imported/Mr. Hugs 2.fbx-7806671c8285fa929dce52b61a79902c.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Mr. Hugs 2.fbx"
-dest_files=["res://.godot/imported/Mr. Hugs 2.fbx-afa9785e90a618e77269049d08fac162.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Mr. Hugs 2.fbx"
+dest_files=["res://.godot/imported/Mr. Hugs 2.fbx-7806671c8285fa929dce52b61a79902c.scn"]
 
 [params]
 

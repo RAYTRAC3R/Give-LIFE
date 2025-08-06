@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhdnqmbhiof5j"
-path.s3tc="res://.godot/imported/Alternate Cylinders_MaskMap.png-5c78a4256da0b65cf389c3f963fec746.s3tc.ctex"
-path.etc2="res://.godot/imported/Alternate Cylinders_MaskMap.png-5c78a4256da0b65cf389c3f963fec746.etc2.ctex"
+path.s3tc="res://.godot/imported/Alternate Cylinders_MaskMap.png-1a0462cdad45433a19b7f97b23a30cc8.s3tc.ctex"
+path.etc2="res://.godot/imported/Alternate Cylinders_MaskMap.png-1a0462cdad45433a19b7f97b23a30cc8.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Alternate Cylinders_MaskMap.png"
-dest_files=["res://.godot/imported/Alternate Cylinders_MaskMap.png-5c78a4256da0b65cf389c3f963fec746.s3tc.ctex", "res://.godot/imported/Alternate Cylinders_MaskMap.png-5c78a4256da0b65cf389c3f963fec746.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Alternate Cylinders_MaskMap.png"
+dest_files=["res://.godot/imported/Alternate Cylinders_MaskMap.png-1a0462cdad45433a19b7f97b23a30cc8.s3tc.ctex", "res://.godot/imported/Alternate Cylinders_MaskMap.png-1a0462cdad45433a19b7f97b23a30cc8.etc2.ctex"]
 
 [params]
 

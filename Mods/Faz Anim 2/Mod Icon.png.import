@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5ts5o81qmp3c"
-path="res://.godot/imported/Mod Icon.png-687ef64d5887504ae1911f5f9f583163.ctex"
+path="res://.godot/imported/Mod Icon.png-3ce9912bb6816260bdbe232364d2adcd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mods/Give Life/Mod Icon.png"
-dest_files=["res://.godot/imported/Mod Icon.png-687ef64d5887504ae1911f5f9f583163.ctex"]
+source_file="res://Mods/Faz Anim 2/Mod Icon.png"
+dest_files=["res://.godot/imported/Mod Icon.png-3ce9912bb6816260bdbe232364d2adcd.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp61taj5f5etu"
-path.s3tc="res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-d780a8d2f8f8b494dbacadb830c2f01f.s3tc.ctex"
-path.etc2="res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-d780a8d2f8f8b494dbacadb830c2f01f.etc2.ctex"
+path.s3tc="res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-cfcc60b0f004e903af87d1666607c3f7.s3tc.ctex"
+path.etc2="res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-cfcc60b0f004e903af87d1666607c3f7.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/painted_plaster_wall_nor_gl_4k.jpg"
-dest_files=["res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-d780a8d2f8f8b494dbacadb830c2f01f.s3tc.ctex", "res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-d780a8d2f8f8b494dbacadb830c2f01f.etc2.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/painted_plaster_wall_nor_gl_4k.jpg"
+dest_files=["res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-cfcc60b0f004e903af87d1666607c3f7.s3tc.ctex", "res://.godot/imported/painted_plaster_wall_nor_gl_4k.jpg-cfcc60b0f004e903af87d1666607c3f7.etc2.ctex"]
 
 [params]
 

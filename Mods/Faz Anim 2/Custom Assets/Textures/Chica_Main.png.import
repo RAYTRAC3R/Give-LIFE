@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fldji252qpey"
-path.bptc="res://.godot/imported/Chica_Main.png-146a8f90116fad62980672fbdcaafaf9.bptc.ctex"
-path.astc="res://.godot/imported/Chica_Main.png-146a8f90116fad62980672fbdcaafaf9.astc.ctex"
+path.bptc="res://.godot/imported/Chica_Main.png-9d1275167b5a10cba2cc209e5c263ff6.bptc.ctex"
+path.astc="res://.godot/imported/Chica_Main.png-9d1275167b5a10cba2cc209e5c263ff6.astc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Textures/Chica_Main.png"
-dest_files=["res://.godot/imported/Chica_Main.png-146a8f90116fad62980672fbdcaafaf9.bptc.ctex", "res://.godot/imported/Chica_Main.png-146a8f90116fad62980672fbdcaafaf9.astc.ctex"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica_Main.png"
+dest_files=["res://.godot/imported/Chica_Main.png-9d1275167b5a10cba2cc209e5c263ff6.bptc.ctex", "res://.godot/imported/Chica_Main.png-9d1275167b5a10cba2cc209e5c263ff6.astc.ctex"]
 
 [params]
 

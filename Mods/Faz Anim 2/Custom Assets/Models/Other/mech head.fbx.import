@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dplsnm7qggt1w"
-path="res://.godot/imported/mech head.fbx-f4552bb801818d9100113c5c8a6096c4.scn"
+path="res://.godot/imported/mech head.fbx-0981652c0378cfb7b92ca10b8f0f4d23.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Other/mech head.fbx"
-dest_files=["res://.godot/imported/mech head.fbx-f4552bb801818d9100113c5c8a6096c4.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Other/mech head.fbx"
+dest_files=["res://.godot/imported/mech head.fbx-0981652c0378cfb7b92ca10b8f0f4d23.scn"]
 
 [params]
 

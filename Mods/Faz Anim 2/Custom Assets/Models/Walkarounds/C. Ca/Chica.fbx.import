@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkvl6klokg3d7"
-path="res://.godot/imported/Chica.fbx-7665082d0364f895235847e50390501b.scn"
+path="res://.godot/imported/Chica.fbx-1ac5c14a500187b3238be2c131f84634.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Walkarounds/C. Ca/Chica.fbx"
-dest_files=["res://.godot/imported/Chica.fbx-7665082d0364f895235847e50390501b.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Walkarounds/C. Ca/Chica.fbx"
+dest_files=["res://.godot/imported/Chica.fbx-1ac5c14a500187b3238be2c131f84634.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bf28d53tv64vn"
-path="res://.godot/imported/Stick Out Lightbulb.fbx-e93e8390a04161a90409acbbd84a8101.scn"
+path="res://.godot/imported/Stick Out Lightbulb.fbx-ea3b4b59fe09003fce6cb9046e28f7b3.scn"
 
 [deps]
 
-source_file="res://Mods/Give Life/Custom Assets/Models/Props/Stick Out Lightbulb.fbx"
-dest_files=["res://.godot/imported/Stick Out Lightbulb.fbx-e93e8390a04161a90409acbbd84a8101.scn"]
+source_file="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Stick Out Lightbulb.fbx"
+dest_files=["res://.godot/imported/Stick Out Lightbulb.fbx-ea3b4b59fe09003fce6cb9046e28f7b3.scn"]
 
 [params]
 

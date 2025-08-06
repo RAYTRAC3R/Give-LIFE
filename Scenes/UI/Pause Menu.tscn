@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm4wgtmgyci17"]
+[gd_scene load_steps=11 format=3 uid="uid://bm4wgtmgyci17"]
 
 [ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Fonts/Themes/Theme Node.tres" id="1_ory21"]
 [ext_resource type="Texture2D" uid="uid://cvudj0qai2hrn" path="res://UI/Nodes/Backing.jpg" id="2_j3kos"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwgnmfn6864ro" path="res://UI/thelogogreen.png" id="3_2glbi"]
 [ext_resource type="Theme" uid="uid://csctk60s8jar3" path="res://UI/Fonts/Themes/Theme Node Inner.tres" id="5_q5xte"]
 [ext_resource type="Theme" uid="uid://cuyeyw4lvn5op" path="res://UI/Fonts/Themes/Theme Node NoShadow.tres" id="6_wdhx8"]
-[ext_resource type="Texture2D" uid="uid://bumrryxwwf62o" path="res://UI/IconGreen.png" id="7_mu3iq"]
 [ext_resource type="Texture2D" uid="uid://cmt4jve3igkmj" path="res://UI/GJ Thumbnail.png" id="7_s4v1y"]
-[ext_resource type="Texture2D" uid="uid://c1iaey3sulam2" path="res://UI/Icons/eye-solid-full.svg" id="8_8r7np"]
 [ext_resource type="Texture2D" uid="uid://c7e2wn02ty2xx" path="res://UI/Icons/file-import-solid-full.svg" id="8_ld2c0"]
 [ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="10_ld2c0"]
 [ext_resource type="Texture2D" uid="uid://dyiswdb1owyty" path="res://UI/Icons/trash-can-solid-full.svg" id="13_mu3iq"]
@@ -59,6 +57,7 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Title Screen" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -374,7 +373,6 @@ size_flags_vertical = 4
 text = "Back"
 
 [node name="Mod Menu" type="MarginContainer" parent="MarginContainer/PanelContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
@@ -417,41 +415,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Mod Box" type="MarginContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder/Mod Box"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme = ExtResource("6_wdhx8")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder/Mod Box/PanelContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder/Mod Box/PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-theme = ExtResource("5_q5xte")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder/Mod Box/PanelContainer/HBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("7_mu3iq")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/ScrollContainer/Mod Holder/Mod Box/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Mod Name"
-clip_text = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -523,24 +486,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Description Example"
+autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="Toggle" type="Button" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/HBoxContainer/Toggle"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_8r7np")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="Export" type="Button" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 25)
@@ -640,6 +589,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
+[node name="ExportDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+size = Vector2i(1086, 360)
+access = 2
+filters = PackedStringArray("*.pck")
+
+[node name="ImportDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+size = Vector2i(1086, 360)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.pck")
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Start Button" to="." method="_on_simulator_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Mods" to="." method="switchMenu" binds= ["mods"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Settings" to="." method="switchMenu" binds= ["settings"]]
@@ -652,5 +616,8 @@ text = "Back"
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Anti-Aliasing/OptionButton" to="." method="_on_option_changed" binds= ["msaa_3d"]]
 [connection signal="value_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume/HSlider" to="." method="_on_slider_changed" binds= ["master_volume"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Settings/Settings/Back Button" to="." method="switchMenu" binds= ["title"]]
+[connection signal="pressed" from="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/Import Mod" to="." method="import_mod"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Mod Menu/Mods/Back Button" to="." method="switchMenu" binds= ["title"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Map Menu/Mods/Back Button" to="." method="switchMenu" binds= ["title"]]
+[connection signal="file_selected" from="ExportDialog" to="." method="_on_export_mod_selected"]
+[connection signal="file_selected" from="ImportDialog" to="." method="_on_import_mod_selected"]
