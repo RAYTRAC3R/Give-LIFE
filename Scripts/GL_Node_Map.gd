@@ -187,7 +187,6 @@ func save_everything():
 	populate_workspace_options()
 
 
-		
 func load_everything():
 	var file_path = "user://My Precious Save Files/" + str(_workspace_ID) + "/node_workspace.tres"
 	var resource = ConfigFile.new()
@@ -216,26 +215,63 @@ func load_everything():
 	# Load nodes
 	var data = resource.get_value("workspace", "data", {})
 	for key in data:
-		var packed_scene = load(data[key]["path"])
+		var original_path = data[key].get("path", "")
+		var packed_scene = load(original_path)
+		
 		if packed_scene == null:
-			printerr("Could not load resource at: " + data[key]["path"])
+			# Try to find replacement path in mods folder
+			var filename = original_path.get_file()  # e.g. MyNode.tscn
+			var found_path = ""
+			var mods_dir = DirAccess.open("res://Mods")
+			if mods_dir:
+				mods_dir.list_dir_begin()
+				var mod_name = mods_dir.get_next()
+				while mod_name != "":
+					if mods_dir.current_is_dir() and mod_name != "." and mod_name != "..":
+						var nodes_path = "res://Mods/%s/Mod Directory/Nodes" % mod_name
+						if DirAccess.dir_exists_absolute(nodes_path):
+							var nodes_dir = DirAccess.open(nodes_path)
+							nodes_dir.list_dir_begin()
+							var file_name = nodes_dir.get_next()
+							while file_name != "":
+								if file_name == filename:
+									found_path = "%s/%s" % [nodes_path, file_name]
+									break
+								file_name = nodes_dir.get_next()
+							nodes_dir.list_dir_end()
+					if found_path != "":
+						break
+					mod_name = mods_dir.get_next()
+				mods_dir.list_dir_end()
+
+			if found_path != "":
+				packed_scene = load(found_path)
+				# Replace original path in data for consistency (optional)
+				data[key]["path"] = found_path
+			else:
+				push_error("Failed to find node scene for: " + filename + " in Mods folder. Aborting load.")
+				return  # Abort loading entire save
+
+		if packed_scene == null:
+			push_error("Could not load resource at path: " + data[key].get("path", "ERR"))
 			continue
+
 		var node = packed_scene.instantiate() as Control
 		holder.add_child(node)
 		node = node.get_child(0) as GL_Node
-		node.position = data[key].get("position",Vector2.ZERO)
-		node.nodePath = data[key].get("path","ERR")
-		node.uuid = data[key].get("uuid","ERR_" + key + str(Time.get_ticks_msec()))
-		node._set_title(data[key].get("name","???"))
-		node.rows = data[key].get("rows",{})
-		node.special_saved_values = data[key].get("special_saved_values",{})
+		node.position = data[key].get("position", Vector2.ZERO)
+		node.nodePath = data[key].get("path", "ERR")
+		node.uuid = data[key].get("uuid", "ERR_" + key + str(Time.get_ticks_msec()))
+		node._set_title(data[key].get("name", "???"))
+		node.rows = data[key].get("rows", {})
+		node.special_saved_values = data[key].get("special_saved_values", {})
 		node._update_visuals()
+		
 		if node is GL_Record:
 			var recording_file = "user://My Precious Save Files/" + str(_workspace_ID) + "/" + node.uuid + "_recording.tres"
 			var config = ConfigFile.new()
 			if config.load(recording_file) == OK:
 				node.recording = config.get_value("recording", "data", {})
-
 
 func generate_new_workspace_id() -> String:
 	var rng = RandomNumberGenerator.new()
