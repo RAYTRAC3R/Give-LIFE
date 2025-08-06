@@ -17,7 +17,7 @@ run/main_scene="uid://bm4wgtmgyci17"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="uid://c1usct57qv2oa"
+config/icon="uid://bumrryxwwf62o"
 
 [display]
 

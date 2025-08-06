@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://i4p62x8fnqpn" path="res://Scripts/GL_Node_Map.gd" id="1_jyqbx"]
 [ext_resource type="PackedScene" uid="uid://mowdu1i1rldt" path="res://Scenes/UI/Search.tscn" id="1_xwfut"]
 [ext_resource type="Texture2D" uid="uid://cvudj0qai2hrn" path="res://UI/Nodes/Backing.jpg" id="2_msys2"]
-[ext_resource type="Shader" uid="uid://dx643ne23bukf" path="res://Materials/Node Map.gdshader" id="2_x1ecx"]
+[ext_resource type="Shader" uid="uid://dx643ne23bukf" path="res://Shaders/Node Map.gdshader" id="2_x1ecx"]
 [ext_resource type="Texture2D" uid="uid://g3x10ge11yel" path="res://UI/Icons/file-pen-solid-full.svg" id="4_jwprv"]
 [ext_resource type="Texture2D" uid="uid://c1iaey3sulam2" path="res://UI/Icons/eye-solid-full.svg" id="4_x1ecx"]
 [ext_resource type="Texture2D" uid="uid://bjp6oqfovb8yk" path="res://UI/Icons/floppy-disk-solid-full.svg" id="5_df00g"]
