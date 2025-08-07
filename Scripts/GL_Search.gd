@@ -44,7 +44,10 @@ func _set_rows():
 	for child in container.get_children():
 		child.queue_free()
 
-	for name in nodePaths.keys():
+	var sorted_keys = nodePaths.keys()
+	sorted_keys.sort() 
+
+	for name in sorted_keys:
 		var row = load("res://Scenes/UI/Search Row.tscn").instantiate()
 		var button = row.get_node("Button") as Button
 		button.text = name
@@ -55,6 +58,7 @@ func _set_rows():
 			_set_State(false)
 		)
 		container.call_deferred("add_child", row)
+
 
 func _create_node(name: String):
 	if not nodePaths.has(name):

@@ -48,6 +48,7 @@ var importModDialog: FileDialog
 var exportModDialog: FileDialog
 var modData := {}
 var exportFile:String
+var mod_sources = {}  # mod_name -> "" (built-in) or "path/to/pck"
 
 const settingsPath := "user://Settings/"
 const settingsFilePath := settingsPath + "user_settings.cfg"
@@ -342,17 +343,27 @@ func unload_current_map():
 		update_simulator_button_text()
 
 func _load_user_pcks():
+	# First pass — existing mods
+	var before_mods = _scan_mod_folders()
+	for m in before_mods:
+		mod_sources[m] = ""  # built-in
+
+	# Load pcks one by one, and check for new folders after each
 	var user_dir = DirAccess.open("user://mods")
 	user_dir.list_dir_begin()
 	var fname = user_dir.get_next()
 	while fname != "":
 		if not user_dir.current_is_dir() and fname.to_lower().ends_with(".pck"):
 			var src = "user://mods/" + fname
-			var err = ProjectSettings.load_resource_pack(src)
-			if err != OK:
-				push_error("Failed to load PCK: " + src)
-			else:
+			var ok = ProjectSettings.load_resource_pack(src)
+			if ok:
 				print("Loaded PCK mod:", fname)
+				var after_mods = _scan_mod_folders()
+				for m in after_mods:
+					if m not in mod_sources:
+						mod_sources[m] = src  # came from this pck
+			else:
+				push_error("Failed to load PCK: " + src)
 		fname = user_dir.get_next()
 	user_dir.list_dir_end()
 
@@ -369,39 +380,46 @@ func _load_mods():
 		if mods_dir.current_is_dir() and mod_name not in [".",".."]:
 			var base = "res://Mods/%s" % mod_name
 			var info_cfg = base + "/Mod Info.cfg"
-			var thumb    = base + "/Mod Thumbnail.png"
-			var icon     = base + "/Mod Icon.png"
-			print(info_cfg)
 			if FileAccess.file_exists(info_cfg):
+				print("Loaded " + mod_name)
 				var cfg = ConfigFile.new()
 				if cfg.load(info_cfg) == OK:
-					var title = cfg.get_value("mods","modtitle",mod_name)
-					var author = cfg.get_value("mods","modauthor","Unknown")
-					var desc = cfg.get_value("mods","moddescription","")
-					# detect if this mod came from a .pck we imported
-					var pck_src = ""
-					var user_dir = DirAccess.open("user://mods")
-					user_dir.list_dir_begin()
-					var f = user_dir.get_next()
-					while f != "":
-						if f.basename() == mod_name and f.to_lower().ends_with(".pck"):
-							pck_src = "user://mods/" + f
-							break
-						f = user_dir.get_next()
-					user_dir.list_dir_end()
-					
 					modData[mod_name] = {
-						"path": base,
-						"pck_source": pck_src,
-						"title": title,
-						"author": author,
-						"description": desc,
-						"thumb": thumb,
-						"icon": icon,
+						"title": cfg.get_value("mods","modtitle",mod_name),
+						"author": cfg.get_value("mods","modauthor","Unknown"),
+						"description": cfg.get_value("mods","moddescription",""),
+						"pck_src": mod_sources.get(mod_name, ""),
+						"icon": base + "/Mod Icon.png",
+						"thumbnail": base + "/Mod Thumbnail.png",
 					}
-			# else: silent skip
+			else:
+				print(mod_name + " does not have a .cfg file, deleting automatically.")
+				var pck = mod_sources.get(mod_name, "")
+				if pck != "" and DirAccess.remove_absolute(pck) == OK:
+					print("Deleted PCK for ", mod_name)
+					get_tree().quit()
+				else:
+					push_error("Failed to delete PCK for " + mod_name)
 		mod_name = mods_dir.get_next()
 	mods_dir.list_dir_end()
+
+
+func print_all_files_in_dir(path: String) -> void:
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
+		var item = dir.get_next()
+		while item != "":
+			var item_path = path.path_join(item)
+			if dir.current_is_dir():
+				print("[DIR] " + item_path)
+				print_all_files_in_dir(item_path) # recurse into subfolder
+			else:
+				print("[FILE] " + item_path)
+			item = dir.get_next()
+		dir.list_dir_end()
+	else:
+		print("Could not open directory: " + path)
 
 func _populate_mod_list():
 	for child in modListContainer.get_children():
@@ -431,10 +449,10 @@ func _select_mod(mod_name: String):
 	sideAuthor.visible = true
 	sideDescription.text = d.description
 	sideDescription.visible = true
-	sideThumbnail.texture = load(d.thumb)
+	sideThumbnail.texture = load(d.thumbnail)
 	sideThumbnail.visible = true
 	
-	var has_pck = d.has("pck_source") and d["pck_source"] != ""
+	var has_pck = d.pck_src != ""
 	sideDeleteBtn.visible = has_pck
 	sideExportBtn.visible = has_pck
 	
@@ -454,15 +472,11 @@ func _select_mod(mod_name: String):
 	sideDeleteBtn.pressed.connect(func():
 		_delete_mod(mod_name)
 		# repurpose back button
-		sideBackBtn.text = "Restart"
+		sideBackBtn.text = "Quit to Reload"
 		for conn in sideBackBtn.get_signal_connection_list("pressed"):
 			sideBackBtn.disconnect("pressed", conn["callable"])
-		sideBackBtn.pressed.connect(_restart_game)
+		sideBackBtn.pressed.connect(_on_quit_button_pressed)
 	)
-
-func _restart_game():
-	get_tree().reload_current_scene()
-
 
 func _on_import_mod_selected(path: String):
 	var fn = path.get_file()
@@ -477,7 +491,7 @@ func _on_import_mod_selected(path: String):
 
 func _on_export_mod_selected(path: String):
 	var mod_name = exportFile
-	var src = modData[mod_name].pck_source
+	var src = modData[mod_name].pck_src
 	if src == "":
 		push_error("No PCK source recorded for mod: " + mod_name)
 		return
@@ -490,9 +504,9 @@ func import_mod():
 	importModDialog.popup_centered()
 
 func _delete_mod(mod_name):
-	var pck = modData[mod_name].pck_source
+	var pck = modData[mod_name].pck_src
 	if pck != "" and DirAccess.remove_absolute(pck) == OK:
-		print("Deleted PCK for", mod_name)
+		print("Deleted PCK for ", mod_name)
 	else:
 		push_error("Failed to delete PCK for " + mod_name)
 	_load_user_pcks()
@@ -521,3 +535,15 @@ func hide_sidebar():
 	sideThumbnail.visible = false
 	sideExportBtn.visible = false
 	sideDeleteBtn.visible = false
+
+func _scan_mod_folders() -> Array:
+	var mods = []
+	var mods_dir = DirAccess.open("res://Mods")
+	if mods_dir:
+		mods_dir.list_dir_begin()
+		var name = mods_dir.get_next()
+		while name != "":
+			if mods_dir.current_is_dir() and name not in [".", ".."]:
+				mods.append(name)
+			name = mods_dir.get_next()
+	return mods

@@ -77,5 +77,4 @@ func find_audio_path() -> String:
 	for node in get_tree().get_nodes_in_group("Node Map"):
 		if node is GL_Node_Map:
 			return "user://My Precious Save Files/" + node._workspace_ID + "/Audio"
-	printerr("Uhhhhh")
 	return ""

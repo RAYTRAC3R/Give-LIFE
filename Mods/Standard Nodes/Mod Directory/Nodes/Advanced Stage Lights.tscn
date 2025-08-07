@@ -13,13 +13,7 @@ clip_contents = false
 layout_mode = 0
 tooltip_text = "Controls a stage light."
 script = ExtResource("2_tjv77")
-customRows = {
-"L_CHASER_MAIN_STAGE": {
-"chase": 0.0,
-"grouping": 0.0,
-"intensity": 0.0
-}
-}
+className = "Advanced Stage Lights"
 
 [connection signal="mouse_entered" from="Node" to="Node" method="mouse_enter"]
 [connection signal="mouse_exited" from="Node" to="Node" method="mouse_exit"]

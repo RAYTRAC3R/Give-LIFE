@@ -10,6 +10,7 @@ var loadNodeRow : Resource
 var special_condition : String
 var special_saved_values : Dictionary
 var optionsMenu : Node
+var customRows : Dictionary
 
 func _ready():
 	loadNodeRow = preload("res://Scenes/Nodes/Node Row.tscn")
@@ -35,6 +36,68 @@ func _input(event):
 			dragOffset = position - get_viewport().get_mouse_position()
 		if event.button_index == MOUSE_BUTTON_LEFT && !event.pressed && dragging:
 			dragging = false
+func _replace_script_paths_and_colors(data):
+	match typeof(data):
+		TYPE_DICTIONARY:
+			for key in data.keys():
+				data[key] = _replace_script_paths_and_colors(data[key])
+			return data
+
+		TYPE_ARRAY:
+			# If it’s exactly 4 floats, treat as Color
+			if data.size() == 4 and [
+				typeof(data[0]), typeof(data[1]),
+				typeof(data[2]), typeof(data[3])
+			] == [TYPE_FLOAT, TYPE_FLOAT, TYPE_FLOAT, TYPE_FLOAT]:
+				return Color(data[0], data[1], data[2], data[3])
+			# Otherwise recurse each element
+			for i in range(data.size()):
+				data[i] = _replace_script_paths_and_colors(data[i])
+			return data
+
+		TYPE_STRING:
+			# Script path → instance
+			if data.begins_with("res://") and data.ends_with(".gd"):
+				var script = load(data)
+				if script and script is GDScript:
+					return script.new()
+			return data
+
+		_:
+			return data
+
+
+func load_custom_rows_from_mods(this_class_name: String):
+	var mods_dir = DirAccess.open("res://Mods")
+	if not mods_dir:
+		push_error("Mods folder not found")
+		return
+
+	mods_dir.list_dir_begin()
+	var mod_name = mods_dir.get_next()
+	while mod_name != "":
+		if mods_dir.current_is_dir() and not mod_name.begins_with("."):
+			var node_settings_path = "res://Mods/%s/Mod Directory/Node Settings" % mod_name
+			if DirAccess.dir_exists_absolute(node_settings_path):
+				var settings_dir = DirAccess.open(node_settings_path)
+				settings_dir.list_dir_begin()
+				var file_name = settings_dir.get_next()
+				while file_name != "":
+					if file_name.to_lower() == (this_class_name.to_lower() + ".json"):
+						var file_path = "%s/%s" % [node_settings_path, file_name]
+						var file = FileAccess.open(file_path, FileAccess.READ)
+						if file:
+							var json_parser = JSON.new()
+							var parse_result = json_parser.parse_string(file.get_as_text())
+							if typeof(parse_result) == TYPE_DICTIONARY:
+								var processed_data = _replace_script_paths_and_colors(parse_result)
+								for key in processed_data.keys():
+									customRows[key] = processed_data[key]
+							else:
+								push_error("Expected a JSON dictionary, but got %s" % typeof(parse_result))
+
+					file_name = settings_dir.get_next()
+		mod_name = mods_dir.get_next()
 
 func _create_uuid():
 	var rand = RandomNumberGenerator.new()
@@ -134,7 +197,7 @@ func _set_inout_type(label:Button, value):
 			label.text = "▲"
 			label.add_theme_color_override("font_color", Color.WHITE_SMOKE)
 	if value is GL_AudioType:
-		label.text = "🔈"
+		label.text = "♫"
 		label.add_theme_color_override("font_color", Color.BLUE_VIOLET)
 	if value == null:
 		label.visible = false
