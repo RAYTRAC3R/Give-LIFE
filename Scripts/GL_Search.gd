@@ -14,7 +14,6 @@ func toggleSearch():
 func _set_State(state: bool):
 	searching = state
 	visible = searching
-
 func _scan_mod_nodes():
 	nodePaths.clear()
 	var mods_dir = DirAccess.open("res://Mods")
@@ -29,14 +28,19 @@ func _scan_mod_nodes():
 			var node_path = "res://Mods/%s/Mod Directory/Nodes" % mod_name
 			if DirAccess.dir_exists_absolute(node_path):
 				var nodes_dir = DirAccess.open(node_path)
-				nodes_dir.list_dir_begin()
-				var file_name = nodes_dir.get_next()
-				while file_name != "":
-					if file_name.ends_with(".tscn"):
-						var name = file_name.get_basename()  # Strip extension
-						var full_path = "%s/%s" % [node_path, file_name]
-						nodePaths[name] = full_path
-					file_name = nodes_dir.get_next()
+				if nodes_dir:
+					nodes_dir.list_dir_begin()
+					var file_name = nodes_dir.get_next()
+					while file_name != "":
+						var filename = file_name
+						# Strip ".remap" suffix if present
+						if filename.ends_with(".remap"):
+							filename = filename.substr(0, filename.length() - 6)
+						if filename.to_lower().ends_with(".tscn"):
+							var name = filename.get_basename()
+							var full_path = "%s/%s" % [node_path, filename]
+							nodePaths[name] = full_path
+						file_name = nodes_dir.get_next()
 		mod_name = mods_dir.get_next()
 
 func _set_rows():
