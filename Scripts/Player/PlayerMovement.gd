@@ -5,6 +5,7 @@ const SPRINT_SPEED: float = 9.0
 const CROUCH_SPEED: float = 2.0
 const JUMP_VELOCITY: float = 4.5
 const MOUSE_SENSITIVITY: float = 0.002
+const CSTICK_SENSITIVITY: float = 0.2
 const MIN_ZOOM_FOV: float = 5.0
 const MAX_ZOOM_FOV: float = 100.0
 const ZOOM_SPEED: float = 5.0
@@ -57,30 +58,29 @@ func _input(event):
 		if event is InputEventMouseMotion:
 			rotation_y -= event.relative.x * MOUSE_SENSITIVITY
 			rotation_x = clamp(rotation_x - event.relative.y * MOUSE_SENSITIVITY, deg_to_rad(-80), deg_to_rad(80))
-	
-		if event is InputEventMouseButton and event.pressed:
-			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				_process_scroll(1)
-			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				_process_scroll(-1)
-
-func _process_scroll(direction: int):
-	if Input.is_action_pressed("Cam Zoom Modifier"):
-		target_fov = clamp(target_fov - (direction * ZOOM_STEP_SPEED), MIN_ZOOM_FOV, MAX_ZOOM_FOV)
-
-	if Input.is_action_pressed("Cam Tilt Modifier"):
-		target_tilt = clamp(target_tilt + (direction * TILT_SPEED), MIN_TILT, MAX_TILT)
-
-	if is_adjusting_smooth:
-		smooth_cam_lerp = clamp(smooth_cam_lerp + (direction * SMOOTH_LERP_STEP), MIN_SMOOTH_LERP, MAX_SMOOTH_LERP)
-
-	if is_adjusting_move:
-		accel_lerp = clamp(accel_lerp + (direction * ACCEL_LERP_STEP), MIN_ACCEL_LERP, MAX_ACCEL_LERP)
-
+		if Input.is_action_just_pressed("Scroll Up (Mouse)"):
+			_process_scroll(1)
+		if Input.is_action_just_pressed("Scroll Down (Mouse)"):
+			_process_scroll(-1)
+			
 func _process(delta: float) -> void:
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		return
-		
+
+	# --- Controller stick look ---
+	var look_x = Input.get_action_strength("Look Right") - Input.get_action_strength("Look Left")
+	var look_y = Input.get_action_strength("Look Down") - Input.get_action_strength("Look Up")
+	if abs(look_x) > 0.05 or abs(look_y) > 0.05: # Deadzone
+		rotation_y -= look_x * CSTICK_SENSITIVITY * 20.0 * delta  # multiplier for stick speed
+		rotation_x = clamp(rotation_x - look_y * CSTICK_SENSITIVITY * 20.0 * delta, deg_to_rad(-80), deg_to_rad(80))
+
+	# --- Controller scroll equivalents ---
+	if Input.is_action_pressed("Scroll Up"):
+		_process_scroll(1)
+	if Input.is_action_pressed("Scroll Down"):
+		_process_scroll(-1)
+
+	# Rest of your smooth cam / smooth movement logic...
 	if Input.is_action_pressed("Smooth Cam"):
 		smooth_held_time += delta
 		if smooth_held_time >= HOLD_THRESHOLD:
@@ -132,11 +132,23 @@ func _process(delta: float) -> void:
 	else:
 		camera.rotation = Vector3(rotation_x, rotation_y, rotation_z)
 
+
+func _process_scroll(direction: int):
+	if Input.is_action_pressed("Cam Zoom Modifier"):
+		target_fov = clamp(target_fov - (direction * ZOOM_STEP_SPEED), MIN_ZOOM_FOV, MAX_ZOOM_FOV)
+
+	if Input.is_action_pressed("Cam Tilt Modifier"):
+		target_tilt = clamp(target_tilt + (direction * TILT_SPEED), MIN_TILT, MAX_TILT)
+
+	if is_adjusting_smooth:
+		smooth_cam_lerp = clamp(smooth_cam_lerp + (direction * SMOOTH_LERP_STEP), MIN_SMOOTH_LERP, MAX_SMOOTH_LERP)
+
+	if is_adjusting_move:
+		accel_lerp = clamp(accel_lerp + (direction * ACCEL_LERP_STEP), MIN_ACCEL_LERP, MAX_ACCEL_LERP)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor() and not fly_mode:
 		velocity.y += get_gravity().y * delta
-
-	
 
 	var input_dir := Vector2.ZERO
 	var currentSpeed = SPEED

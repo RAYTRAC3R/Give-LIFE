@@ -16,9 +16,10 @@ var was_flashlight_pressed := false
 func _process(delta):
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		return
+
+	# Handle flashlight toggle / adjust mode
 	if Input.is_action_pressed("Flashlight"):
 		flashlight_held_time += delta
-
 		if flashlight_held_time >= HOLD_THRESHOLD:
 			is_adjusting = true
 			if not visible:
@@ -32,14 +33,14 @@ func _process(delta):
 
 	was_flashlight_pressed = Input.is_action_pressed("Flashlight")
 
+	# Adjust size if in adjust mode
+	if is_adjusting:
+		if Input.is_action_pressed("Scroll Up") or Input.is_action_just_pressed("Scroll Up (Mouse)"):
+			targetSize = clamp(targetSize + 5, minSize, maxSize)
+		elif Input.is_action_pressed("Scroll Down") or Input.is_action_just_pressed("Scroll Down (Mouse)"):
+			targetSize = clamp(targetSize - 5, minSize, maxSize)
+
+	# Smoothly interpolate size and update light properties
 	size = lerp(size, targetSize, delta * 2)
 	spot_angle = size
 	light_energy = clamp(maxSize - size, minLight, maxLight)
-
-func _input(event):
-	if is_adjusting and event is InputEventMouseButton:
-		match event.button_index:
-			MOUSE_BUTTON_WHEEL_UP:
-				targetSize = clamp(targetSize + 5, minSize, maxSize)
-			MOUSE_BUTTON_WHEEL_DOWN:
-				targetSize = clamp(targetSize - 5, minSize, maxSize)
