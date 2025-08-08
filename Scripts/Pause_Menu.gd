@@ -9,6 +9,9 @@ var windowModeOptions: OptionButton
 var msaaOptions: OptionButton
 var volumeSlider: Slider
 var physicsbonesButton: CheckButton
+var scaleMode: OptionButton
+var renderscale: Slider
+var renderScaleText: Label
 
 var simulatorButton: Button
 
@@ -40,6 +43,9 @@ var currentSettings := {
 	"physics_bones": true,
 	"msaa_3d": Viewport.MSAA_2X,
 	"recent_map": "",
+	"auto_run": false,
+	"render_scale": 1.0,
+	"scale_mode": 0,
 }
 
 var modListContainer: VBoxContainer
@@ -100,6 +106,9 @@ func _ready():
 	msaaOptions = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Anti-Aliasing/OptionButton")
 	volumeSlider = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Audio/VBoxContainer/Master Volume/HSlider")
 	simulatorButton = get_node("MarginContainer/PanelContainer/Title Screen/Start Button")
+	renderscale = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale/HSlider")
+	scaleMode = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale Mode/OptionButton")
+	renderScaleText = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale/Label")
 	physicsbonesButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Physics Bones/CheckButton")
 	versionNumber.text = "v" + ProjectSettings.get_setting("application/config/version")
 	sideTitle       = get_node("MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/Mod Title")
@@ -216,10 +225,22 @@ func apply_settings():
 	volumeSlider.set_value_no_signal(currentSettings["master_volume"])
 	showPressedKeysButton.set_pressed_no_signal(currentSettings["show_key_presses"])
 	physicsbonesButton.set_pressed_no_signal(currentSettings["physics_bones"])
-	var vp = get_tree().root
+	scaleMode.set_pressed_no_signal(currentSettings["scale_mode"])
+	renderscale.set_value_no_signal(currentSettings["render_scale"])
+	renderScaleText.text = "Render Scale (" + str(roundi(currentSettings["render_scale"]*100)) + "%)"
+
+	var vp = get_tree().root.get_viewport()
 	vp.msaa_3d = currentSettings["msaa_3d"]
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(currentSettings["master_volume"]))
-	
+	match currentSettings["scale_mode"]:
+		0:
+			vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_BILINEAR
+		1:
+			vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
+		2:
+			vp.scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR2
+	vp.scaling_3d_scale = currentSettings.get("render_scale", 1.0)
+
 	get_tree().call_group("SettingsReceivers", "on_settings_applied", currentSettings)
 
 func update_simulator_button_text():
