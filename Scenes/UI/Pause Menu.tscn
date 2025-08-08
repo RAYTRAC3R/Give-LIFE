@@ -1,14 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bm4wgtmgyci17"]
+[gd_scene load_steps=18 format=3 uid="uid://bm4wgtmgyci17"]
 
 [ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Themes/Theme Node.tres" id="1_ory21"]
 [ext_resource type="Texture2D" uid="uid://cvudj0qai2hrn" path="res://UI/Nodes/Backing.jpg" id="2_j3kos"]
 [ext_resource type="Script" uid="uid://d0xp5idbh7y7v" path="res://Scripts/Pause_Menu.gd" id="2_q5xte"]
 [ext_resource type="Texture2D" uid="uid://dwgnmfn6864ro" path="res://UI/thelogogreen.png" id="3_2glbi"]
+[ext_resource type="Script" uid="uid://b4aa4vacbh1ln" path="res://Scripts/Sound UI/SoundUI.gd" id="5_8r7np"]
 [ext_resource type="Theme" uid="uid://csctk60s8jar3" path="res://UI/Themes/Theme Node Inner.tres" id="5_q5xte"]
+[ext_resource type="AudioStream" uid="uid://cron3phbvrasi" path="res://Sounds/Tick2.wav" id="6_571ku"]
 [ext_resource type="Theme" uid="uid://cuyeyw4lvn5op" path="res://UI/Themes/Theme Node NoShadow.tres" id="6_wdhx8"]
+[ext_resource type="AudioStream" uid="uid://cnu056nqhchk1" path="res://Sounds/Thack.wav" id="7_mu3iq"]
 [ext_resource type="Texture2D" uid="uid://cmt4jve3igkmj" path="res://UI/GJ Thumbnail.png" id="7_s4v1y"]
 [ext_resource type="Texture2D" uid="uid://c7e2wn02ty2xx" path="res://UI/Icons/file-import-solid-full.svg" id="8_ld2c0"]
+[ext_resource type="AudioStream" uid="uid://c2x6femivhjud" path="res://Sounds/Cloc2.wav" id="8_mu3iq"]
+[ext_resource type="Script" uid="uid://bpw7qskt1i8s2" path="res://Scripts/Sound UI/SoundSlider.gd" id="9_swo4q"]
 [ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="10_ld2c0"]
+[ext_resource type="AudioStream" uid="uid://bq5a3xyfofaaa" path="res://Sounds/Tip.wav" id="10_oqrga"]
+[ext_resource type="AudioStream" uid="uid://bbnbaxncick0a" path="res://Sounds/Tck.wav" id="11_oqrga"]
 [ext_resource type="Texture2D" uid="uid://dyiswdb1owyty" path="res://UI/Icons/trash-can-solid-full.svg" id="13_mu3iq"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("fpsButton")]
@@ -172,6 +179,12 @@ text = "Show Pressed Keys"
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys"]
 layout_mode = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="FPS" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -187,6 +200,12 @@ text = "Show FPS"
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS"]
 layout_mode = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Boot on Start" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -202,8 +221,7 @@ text = "Boot On Start"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start"]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
+action_mode = 1
 selected = 0
 item_count = 3
 popup/item_0/text = "Title Screen"
@@ -212,6 +230,12 @@ popup/item_1/text = "Recent Map"
 popup/item_1/id = 1
 popup/item_2/text = "Editor"
 popup/item_2/id = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("8_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Graphical" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
 visible = false
@@ -238,14 +262,21 @@ text = "Window Mode"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode"]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
+action_mode = 1
 selected = 0
-item_count = 2
-popup/item_0/text = "Windowed"
-popup/item_0/id = 1
-popup/item_1/text = "Fullscreen"
-popup/item_1/id = 2
+item_count = 3
+popup/item_0/text = "Title Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Recent Map"
+popup/item_1/id = 1
+popup/item_2/text = "Editor"
+popup/item_2/id = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("8_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Physics Bones" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -261,6 +292,12 @@ text = "Physics Bones"
 
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Physics Bones"]
 layout_mode = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Anti-Aliasing" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -276,18 +313,21 @@ text = "Anti-Aliasing"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Anti-Aliasing"]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
+action_mode = 1
 selected = 0
-item_count = 4
-popup/item_0/text = "Off (Fastest)"
+item_count = 3
+popup/item_0/text = "Title Screen"
 popup/item_0/id = 0
-popup/item_1/text = "MSAA 2x (Fast)"
+popup/item_1/text = "Recent Map"
 popup/item_1/id = 1
-popup/item_2/text = "MSAA 4x (Slow)"
+popup/item_2/text = "Editor"
 popup/item_2/id = 2
-popup/item_3/text = "MSAA 8x (Slowest)"
-popup/item_3/id = 3
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("8_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Render Scale" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -308,6 +348,13 @@ min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 1.0
+script = ExtResource("9_swo4q")
+hover_sound = ExtResource("10_oqrga")
+press_sound = ExtResource("11_oqrga")
+press_random_pitch_enabled = false
+press_min_pitch = 0.9
+press_max_pitch = 1.1
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Render Scale Mode" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -323,16 +370,21 @@ text = "Scale Mode"
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale Mode"]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
+action_mode = 1
 selected = 0
 item_count = 3
-popup/item_0/text = "Bilinear (Fastest)"
+popup/item_0/text = "Title Screen"
 popup/item_0/id = 0
-popup/item_1/text = "FSR 1.0 (Fast)"
+popup/item_1/text = "Recent Map"
 popup/item_1/id = 1
-popup/item_2/text = "FSR 2.2 (Slow)"
+popup/item_2/text = "Editor"
 popup/item_2/id = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("8_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="Audio" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
 visible = false
@@ -652,18 +704,23 @@ text = "Back"
 
 [node name="ExportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
+scaling_3d_scale = 0.25
 size = Vector2i(1086, 360)
 access = 2
 filters = PackedStringArray("*.pck")
 
 [node name="ImportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
+scaling_3d_scale = 0.25
 title = "Open a File"
 size = Vector2i(1086, 360)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.pck")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Start Button" to="." method="_on_simulator_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Mods" to="." method="switchMenu" binds= ["mods"]]
