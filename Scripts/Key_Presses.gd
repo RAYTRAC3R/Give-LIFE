@@ -72,6 +72,8 @@ var key_lookup: Dictionary = {
 }
 
 var enabled: bool = false
+var fpsenabled: bool = false
+@export var fps: Label
 
 func _ready():
 	add_to_group("SettingsReceivers")
@@ -79,7 +81,9 @@ func _ready():
 
 func on_settings_applied(settings: Dictionary) -> void:
 	enabled = settings.get("show_key_presses", false)
+	fpsenabled = settings.get("show_fps", false)
 	visible = enabled
+	fps.visible = fpsenabled
 
 func create_key_labels() -> void:
 	for i in MAX_KEYS:

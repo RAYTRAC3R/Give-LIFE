@@ -12,6 +12,7 @@ var physicsbonesButton: CheckButton
 var scaleMode: OptionButton
 var renderscale: Slider
 var renderScaleText: Label
+@export var fpsButton: CheckButton
 
 var simulatorButton: Button
 
@@ -46,6 +47,7 @@ var currentSettings := {
 	"auto_run": false,
 	"render_scale": 1.0,
 	"scale_mode": 0,
+	"show_fps": false,
 }
 
 var modListContainer: VBoxContainer
@@ -224,6 +226,7 @@ func apply_settings():
 	msaaOptions.selected = currentSettings["msaa_3d"]
 	volumeSlider.set_value_no_signal(currentSettings["master_volume"])
 	showPressedKeysButton.set_pressed_no_signal(currentSettings["show_key_presses"])
+	fpsButton.set_pressed_no_signal(currentSettings["show_fps"])
 	physicsbonesButton.set_pressed_no_signal(currentSettings["physics_bones"])
 	scaleMode.set_pressed_no_signal(currentSettings["scale_mode"])
 	renderscale.set_value_no_signal(currentSettings["render_scale"])

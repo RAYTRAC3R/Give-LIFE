@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="10_ld2c0"]
 [ext_resource type="Texture2D" uid="uid://dyiswdb1owyty" path="res://UI/Icons/trash-can-solid-full.svg" id="13_mu3iq"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("fpsButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_ory21")
 script = ExtResource("2_q5xte")
+fpsButton = NodePath("MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS/CheckButton")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -126,10 +127,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="General" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -173,6 +173,21 @@ text = "Show Pressed Keys"
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys"]
 layout_mode = 2
 
+[node name="FPS" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show FPS"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS"]
+layout_mode = 2
+
 [node name="Boot on Start" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -199,6 +214,7 @@ popup/item_2/text = "Editor"
 popup/item_2/id = 2
 
 [node name="Graphical" type="ScrollContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -655,6 +671,7 @@ filters = PackedStringArray("*.pck")
 [connection signal="pressed" from="MarginContainer/PanelContainer/Title Screen/Exit" to="." method="_on_quit_button_pressed"]
 [connection signal="text_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username/LineEdit" to="." method="_on_line_edit_changed" binds= ["username"]]
 [connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys/CheckButton" to="." method="_on_button_changed" binds= ["show_key_presses"]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS/CheckButton" to="." method="_on_button_changed" binds= ["show_fps"]]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start/OptionButton" to="." method="_on_option_changed" binds= ["boot_on_start"]]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode/OptionButton" to="." method="_on_option_changed" binds= ["window_mode"]]
 [connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Physics Bones/CheckButton" to="." method="_on_button_changed" binds= ["physics_bones"]]

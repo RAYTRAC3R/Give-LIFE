@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfkosl2hj487f"]
+[gd_scene load_steps=4 format=3 uid="uid://bfkosl2hj487f"]
 
+[ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Themes/Theme Node.tres" id="1_qbrh3"]
 [ext_resource type="Script" uid="uid://cdnxalw7th2r7" path="res://Scripts/Key_Presses.gd" id="1_qh4h2"]
+[ext_resource type="Script" uid="uid://ty86wd6bos8y" path="res://Scripts/fps_counter.gd" id="3_8gxyj"]
 
 [node name="KeyPresses" type="Control"]
 layout_mode = 3
@@ -10,8 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_qbrh3")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." node_paths=PackedStringArray("fps")]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 1
 anchors_preset = 7
@@ -26,3 +29,14 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
 script = ExtResource("1_qh4h2")
+fps = NodePath("../MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "FPS: 646464"
+script = ExtResource("3_8gxyj")
