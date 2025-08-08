@@ -9,7 +9,7 @@ extends Node
 @export var press_pitch_multiplier_on: float = 1.0   # base multiplier for press toggle ON
 @export var press_pitch_multiplier_off: float = 1.0  # base multiplier for press toggle OFF
 
-var pitch_variations: Array = [1.2,0.8,1.0,1.0,1.0,0.8,1.0]          # shared pitch multiplier array for hover & press
+var pitch_variations: Array = [1.1,0.9,1.0,1.0,1.0,0.9,1.0]          # shared pitch multiplier array for hover & press
 
 @export var audio_player_path: NodePath
 
@@ -22,9 +22,17 @@ func _ready():
 		player_ref = get_node(audio_player_path)
 	else:
 		push_error("No audio player assigned for UISoundHelper.")
-
-	if has_signal("mouse_entered"):
+		
+	if has_signal("tab_hovered"):
+		connect("tab_hovered", on_tab_hover)
+	elif has_signal("mouse_entered"):
 		connect("mouse_entered", _on_hover)
+		
+	if has_signal("focus_entered"):
+		connect("focus_entered", _on_hover)
+	elif has_signal("item_focused"):
+		connect("item_focused", _on_hover)
+		
 	if has_signal("toggled"):
 		connect("toggled", _on_press)
 	elif has_signal("pressed"):
@@ -33,6 +41,10 @@ func _ready():
 		connect("value_changed", _on_press)
 	elif has_signal("item_selected"):
 		connect("item_selected", _on_press)
+	elif has_signal("text_changed"):
+		connect("text_changed", _on_changed_text)
+	elif has_signal("tab_clicked"):
+		connect("tab_clicked", on_tab_click)
 
 func _on_hover():
 	if hover_sound and player_ref:
@@ -43,6 +55,15 @@ func _on_hover():
 			pitch *= _get_next_pitch()
 		player_ref.pitch_scale = pitch	
 		player_ref.play()
+
+func _on_changed_text(unused:String):
+	_on_press(false)
+
+func on_tab_click(unused:int):
+	_on_press(false)
+	
+func on_tab_hover(unused:int):
+	_on_hover()
 
 func _on_pressed_button():
 	_on_press(false)

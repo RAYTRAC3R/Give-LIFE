@@ -24,6 +24,10 @@ func _ready():
 
 	if has_signal("mouse_entered"):
 		connect("mouse_entered", _on_hover)
+	if has_signal("focus_entered"):
+		connect("focus_entered", _on_hover)
+	elif has_signal("item_focused"):
+		connect("item_focused", _on_hover)
 	if has_signal("value_changed"):
 		connect("value_changed", _on_value_changed)
 
