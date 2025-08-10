@@ -44,7 +44,7 @@ func _scan_mod_nodes():
 		mod_name = mods_dir.get_next()
 
 func _set_rows():
-	var container = get_node("Panel/ScrollContainer/Container")
+	var container = get_node("Panel/MarginContainer/ScrollContainer/Container")
 	for child in container.get_children():
 		child.queue_free()
 
