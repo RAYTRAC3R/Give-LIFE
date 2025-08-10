@@ -1,0 +1,8 @@
+[
+	{
+		"script": "res://Mods/XSHW Converter/Custom Assets/Scripts/XSHW_To_GLST.gd",
+		"displayname": "Import .fshw",
+		"function": "convert_file_with_prompt",
+		"parameter": "Faz Anim (FNaF 1)"
+	}
+]

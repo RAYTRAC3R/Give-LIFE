@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c57u187iciexi"]
+[gd_scene load_steps=15 format=3 uid="uid://c57u187iciexi"]
 
 [ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Themes/Theme Node.tres" id="1_aip54"]
 [ext_resource type="Script" uid="uid://i4p62x8fnqpn" path="res://Scripts/GL_Node_Map.gd" id="1_jyqbx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://4b2srsxkutws" path="res://UI/Icons/list-solid-full.svg" id="7_qqq3r"]
 [ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="8_df00g"]
 [ext_resource type="Texture2D" uid="uid://c7e2wn02ty2xx" path="res://UI/Icons/file-import-solid-full.svg" id="9_ci56e"]
+[ext_resource type="PackedScene" uid="uid://dffakik4vokde" path="res://Scenes/UI/Actions.tscn" id="13_63spv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1m68g"]
 shader = ExtResource("2_x1ecx")
@@ -19,7 +20,6 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 
 [node name="NodeMap" type="Control" groups=["Node Map", "SettingsReceivers"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,6 +207,19 @@ offset_bottom = -53.0
 grow_horizontal = 1
 grow_vertical = 0
 
+[node name="Actions" parent="." node_paths=PackedStringArray("toggle_button") instance=ExtResource("13_63spv")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -210.0
+offset_top = -255.0
+offset_right = -10.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+toggle_button = NodePath("../MarginContainer/HBoxContainer/Actions")
+
 [node name="Edit Menu" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -266,14 +279,12 @@ layout_mode = 2
 text = "Last Updated: 2:00pm December 9th"
 
 [node name="ExportDialog" type="FileDialog" parent="."]
-scaling_3d_scale = 1.0
 size = Vector2i(1086, 360)
 access = 2
 filters = PackedStringArray("*.zip")
 
 [node name="ImportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
-scaling_3d_scale = 1.0
 title = "Open a File"
 size = Vector2i(1086, 360)
 ok_button_text = "Open"
@@ -284,7 +295,7 @@ filters = PackedStringArray("*.zip")
 [connection signal="pressed" from="MarginContainer/HBoxContainer2/Search" to="Search" method="toggleSearch"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer2/Toggle Background" to="." method="toggle_background"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Edit" to="." method="_edit_button_toggled"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Actions" to="." method="save_everything"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Actions" to="Actions" method="toggle_search"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Save" to="." method="save_everything"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Share" to="." method="export_workspace_zip"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Import" to="." method="import_workspace_zip"]
