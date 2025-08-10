@@ -9,6 +9,7 @@ clip_contents = true
 custom_minimum_size = Vector2(200, 100)
 offset_right = 200.0
 offset_bottom = 100.0
+pivot_offset = Vector2(100, 50)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 6

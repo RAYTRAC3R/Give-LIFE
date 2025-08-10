@@ -12,6 +12,9 @@ var special_saved_values : Dictionary
 var optionsMenu : Node
 var customRows : Dictionary
 
+const draggingScale : float = 1.05
+const dragScalingSpeed : float = 8
+
 func _ready():
 	loadNodeRow = preload("res://Scenes/Nodes/Node Row.tscn")
 	(get_node("Margins").get_node("Holder").get_node("Title").get_node("Exit Button") as Button).connect("button_down",self.delete_whole_node)
@@ -19,6 +22,9 @@ func _ready():
 func _process(delta):
 	if dragging:
 		position = get_viewport().get_mouse_position() + dragOffset
+		scale = lerp(scale,Vector2.ONE * draggingScale,delta * dragScalingSpeed)
+	else:
+		scale = lerp(scale,Vector2.ONE,delta * dragScalingSpeed)
 	for key in rows:
 		for connection in rows[key].get("connections",[]):
 			if typeof(connection.target) == TYPE_STRING:

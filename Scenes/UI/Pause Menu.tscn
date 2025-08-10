@@ -64,6 +64,7 @@ layout_mode = 2
 [node name="Version Number" type="Label" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 0.129412)
 text = "v.test"
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -523,6 +524,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Made by The 64th Gamer
+Credit to Palazzol for showtape format documentation.
 
 Iterated from the DEAD Engine
 and RR Engine

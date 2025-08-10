@@ -263,9 +263,21 @@ func load_everything():
 		node.nodePath = data[key].get("path", "ERR")
 		node.uuid = data[key].get("uuid", "ERR_" + key + str(Time.get_ticks_msec()))
 		node._set_title(data[key].get("name", "???"))
-		node.rows = data[key].get("rows", {})
+		
+		# Merge saved rows into existing rows
+		var saved_rows = data[key].get("rows", {})
+		for row_key in saved_rows.keys():
+			if node.rows.has(row_key):
+				# Update existing row values
+				for sub_key in saved_rows[row_key].keys():
+					node.rows[row_key][sub_key] = saved_rows[row_key][sub_key]
+			else:
+				# Add entirely new row if missing
+				node.rows[row_key] = saved_rows[row_key]
+
 		node.special_saved_values = data[key].get("special_saved_values", {})
 		node._update_visuals()
+
 		
 		if node is GL_Record:
 			var recording_file = "user://My Precious Save Files/" + str(_workspace_ID) + "/" + node.uuid + "_recording.tres"
@@ -367,7 +379,7 @@ func export_workspace_zip():
 		push_error("Could not open workspace folder.")
 		return
 
-	exportDialog.current_file = save_name + "_" + _workspace_ID + ".zip"
+	exportDialog.current_file = save_name + " (GLST).zip"
 	exportDialog.popup_centered()
 
 func _on_exportDialog_file_selected(clicked_path: String) -> void:

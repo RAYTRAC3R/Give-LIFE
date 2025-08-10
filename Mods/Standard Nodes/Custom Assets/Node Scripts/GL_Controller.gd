@@ -41,6 +41,9 @@ func _ready():
 	for label in button_map.keys():
 		_create_row(label, null, false, false, false, 0)
 
+	# Vibration intensity (float, 0.0 to 1.0)
+	_create_row("Vibration Intensity", 0.0, null, false, 0.0, 0)
+
 	_update_visuals()
 
 func _process(delta):
@@ -73,6 +76,13 @@ func _process(delta):
 	# ==== BUTTONS ====
 	for label in button_map.keys():
 		rows[label]["output"] = Input.is_action_pressed(button_map[label])
+
+	# ==== VIBRATION ====
+	var vib_intensity = clamp(rows["Vibration Intensity"]["input"], 0.0, 1.0)
+	if vib_intensity > 0.0:
+		Input.start_joy_vibration(0, vib_intensity, vib_intensity, 0) # 0.1s bursts to keep it going
+	else:
+		Input.stop_joy_vibration(0)
 
 	# ==== Send outputs ====
 	for key in rows.keys():
