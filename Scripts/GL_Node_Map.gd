@@ -450,10 +450,11 @@ func _on_importDialog_file_selected(path: String):
 	_workspace_index_to_id[optionsVar.item_count] = new_id
 	populate_workspace_options()
 	print("Imported workspace as ID: ", new_id)
-
-func _get_all_files_recursive(base_path: String) -> PackedStringArray:
+	
+func _get_all_files_recursive(base_path: String, rel_path: String = "") -> PackedStringArray:
 	var files: PackedStringArray = []
-	var dir = DirAccess.open(base_path)
+	var dir_path = base_path.path_join(rel_path)
+	var dir = DirAccess.open(dir_path)
 	if dir == null:
 		return files
 
@@ -461,8 +462,14 @@ func _get_all_files_recursive(base_path: String) -> PackedStringArray:
 	dir.list_dir_begin()
 	var name = dir.get_next()
 	while name != "":
-		if not dir.current_is_dir():
-			files.append(name)
+		if name != "." and name != "..":
+			if dir.current_is_dir():
+				# Recurse into the folder
+				files.append_array(_get_all_files_recursive(base_path, rel_path.path_join(name)))
+			else:
+				# Add relative path so folder structure is preserved in ZIP
+				files.append(rel_path.path_join(name))
 		name = dir.get_next()
 	dir.list_dir_end()
+
 	return files
