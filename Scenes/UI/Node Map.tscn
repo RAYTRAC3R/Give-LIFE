@@ -19,6 +19,7 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 
 [node name="NodeMap" type="Control" groups=["Node Map", "SettingsReceivers"]]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -265,12 +266,14 @@ layout_mode = 2
 text = "Last Updated: 2:00pm December 9th"
 
 [node name="ExportDialog" type="FileDialog" parent="."]
+scaling_3d_scale = 1.0
 size = Vector2i(1086, 360)
 access = 2
 filters = PackedStringArray("*.zip")
 
 [node name="ImportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
+scaling_3d_scale = 1.0
 title = "Open a File"
 size = Vector2i(1086, 360)
 ok_button_text = "Open"

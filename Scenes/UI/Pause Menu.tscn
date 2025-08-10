@@ -267,6 +267,27 @@ press_pitch_randomize_enabled = false
 press_pitch_multiplier_off = 0.5
 audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
 
+[node name="Autorun" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Autorun"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Auto Run"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Autorun"]
+layout_mode = 2
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../AudioStreamPlayer2D")
+
 [node name="FPS" type="HBoxContainer" parent="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -773,12 +794,14 @@ text = "Back"
 
 [node name="ExportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
+scaling_3d_scale = 1.0
 size = Vector2i(1086, 360)
 access = 2
 filters = PackedStringArray("*.pck")
 
 [node name="ImportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
+scaling_3d_scale = 1.0
 title = "Open a File"
 size = Vector2i(1086, 360)
 ok_button_text = "Open"
@@ -796,6 +819,7 @@ volume_db = 4.0
 [connection signal="text_changed" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Username/LineEdit" to="." method="_on_line_edit_changed" binds= ["username"]]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Boot on Start/OptionButton" to="." method="_on_option_changed" binds= ["boot_on_start"]]
 [connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Show Pressed Keys/CheckButton" to="." method="_on_button_changed" binds= ["show_key_presses"]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Autorun/CheckButton" to="." method="_on_button_changed" binds= ["auto_run"]]
 [connection signal="toggled" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/FPS/CheckButton" to="." method="_on_button_changed" binds= ["show_fps"]]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Window Mode/OptionButton" to="." method="_on_option_changed" binds= ["window_mode"]]
 [connection signal="item_selected" from="MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Anti-Aliasing/OptionButton" to="." method="_on_option_changed" binds= ["msaa_3d"]]

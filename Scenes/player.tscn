@@ -10,9 +10,9 @@
 radius = 0.25
 height = 3.0
 
-[node name="Player" type="Node3D" groups=["SettingsReceivers"]]
+[node name="Player" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["SettingsReceivers"]]
 collision_layer = 2
 script = ExtResource("1_fkybt")
 

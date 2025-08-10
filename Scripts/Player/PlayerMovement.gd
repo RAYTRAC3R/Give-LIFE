@@ -50,6 +50,8 @@ var move_held_time: float = 0.0
 var was_move_pressed: bool = false
 var is_adjusting_move: bool = false
 
+var settings_autorun: bool = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -161,7 +163,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Jump") and is_on_floor() and not fly_mode:
 			velocity.y = JUMP_VELOCITY
 			
-		if Input.is_action_pressed("Sprint"):
+		if Input.is_action_pressed("Sprint") || settings_autorun:
 			currentSpeed = SPRINT_SPEED
 			
 		if Input.is_action_pressed("Crouch") and not fly_mode:
@@ -216,3 +218,6 @@ func get_collision_speed_multiplier() -> float:
 			if dist < shortest_dist:
 				shortest_dist = dist
 	return clamp((shortest_dist - COLLISION_CHECK_MIN) / (COLLISION_CHECK_MAX - COLLISION_CHECK_MIN), MIN_SPEED_MULTIPLIER, 1.0)
+
+func on_settings_applied(settings: Dictionary) -> void:
+	settings_autorun = settings["auto_run"]

@@ -9,6 +9,7 @@ var windowModeOptions: OptionButton
 var msaaOptions: OptionButton
 var volumeSlider: Slider
 var physicsbonesButton: CheckButton
+var autorunButton: CheckButton
 var scaleMode: OptionButton
 var renderscale: Slider
 var renderScaleText: Label
@@ -112,6 +113,7 @@ func _ready():
 	scaleMode = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale Mode/OptionButton")
 	renderScaleText = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Render Scale/Label")
 	physicsbonesButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/Graphical/VBoxContainer/Physics Bones/CheckButton")
+	autorunButton = get_node("MarginContainer/PanelContainer/Settings/Settings/TabContainer/General/VBoxContainer/Autorun/CheckButton")
 	versionNumber.text = "v" + ProjectSettings.get_setting("application/config/version")
 	sideTitle       = get_node("MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/Mod Title")
 	sideAuthor      = get_node("MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/MarginContainer/Mod Desc/MarginContainer/VBoxContainer/Mod Author")
@@ -227,6 +229,7 @@ func apply_settings():
 	volumeSlider.set_value_no_signal(currentSettings["master_volume"])
 	showPressedKeysButton.set_pressed_no_signal(currentSettings["show_key_presses"])
 	fpsButton.set_pressed_no_signal(currentSettings["show_fps"])
+	autorunButton.set_pressed_no_signal(currentSettings["auto_run"])
 	physicsbonesButton.set_pressed_no_signal(currentSettings["physics_bones"])
 	scaleMode.set_pressed_no_signal(currentSettings["scale_mode"])
 	renderscale.set_value_no_signal(currentSettings["render_scale"])
