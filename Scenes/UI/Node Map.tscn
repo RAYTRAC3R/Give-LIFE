@@ -18,7 +18,7 @@ shader = ExtResource("2_x1ecx")
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 
-[node name="NodeMap" type="Control" groups=["Node Map"]]
+[node name="NodeMap" type="Control" groups=["Node Map", "SettingsReceivers"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -30,6 +30,8 @@ var last_updated: String = ""
 
 const carpetScale:float = 1.5
 
+var loadedUsername:String = "Unnamed Author"
+
 func _notification(what):
 	if what == NOTIFICATION_EXIT_TREE:
 		save_everything()
@@ -339,12 +341,15 @@ func _on_workspace_selected(index: int):
 func auto_populate_metadata():
 	_workspace_ID = generate_new_workspace_id()
 	save_name = "My Save"
-	author_name = "Unnamed Author"
+	author_name = loadedUsername
 	version = ProjectSettings.get_setting("application/config/version")
 	game_title = ProjectSettings.get_setting("application/config/name")
 	time_created = ""
 	last_updated = ""
 	_update_edit_menu_labels()
+	
+func on_settings_applied(settings: Dictionary) -> void:
+	loadedUsername = settings["username"]
 
 func _update_edit_menu_labels():
 	titleLineEdit.text = save_name
