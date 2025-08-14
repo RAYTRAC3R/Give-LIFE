@@ -489,7 +489,7 @@ func _populate_mod_list():
 		
 		# assume the prefab has a Button named “SelectBtn”
 		var select_btn = entry.get_node("Button") as Button
-		select_btn.pressed.connect(func(n=name):
+		select_btn.button_down.connect(func(n=name):
 			_select_mod(n)
 		)
 		modListContainer.add_child(entry)

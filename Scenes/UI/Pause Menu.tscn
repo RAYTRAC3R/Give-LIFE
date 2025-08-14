@@ -632,6 +632,14 @@ layout_mode = 2
 [node name="Import Mod" type="Button" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
+toggle_mode = true
+alignment = 0
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../../../../../../AudioStreamPlayer2D")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/Mod Menu/Mods/PanelContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/Import Mod"]
 layout_mode = 1
@@ -733,11 +741,19 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
 [node name="Back Button" type="Button" parent="MarginContainer/PanelContainer/Mod Menu/Mods"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(300, 38.025)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+toggle_mode = true
 text = "Back"
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+hover_pitch_randomize_enabled = false
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../AudioStreamPlayer2D")
 
 [node name="Map Menu" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 visible = false
@@ -786,22 +802,28 @@ custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
 [node name="Back Button" type="Button" parent="MarginContainer/PanelContainer/Map Menu/Mods"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(300, 38.025)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+toggle_mode = true
 text = "Back"
+script = ExtResource("5_8r7np")
+hover_sound = ExtResource("6_571ku")
+hover_pitch_randomize_enabled = false
+press_sound = ExtResource("7_mu3iq")
+press_pitch_randomize_enabled = false
+press_pitch_multiplier_off = 0.5
+audio_player_path = NodePath("../../../../../AudioStreamPlayer2D")
 
 [node name="ExportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
-scaling_3d_scale = 1.0
 size = Vector2i(1086, 360)
 access = 2
 filters = PackedStringArray("*.pck")
 
 [node name="ImportDialog" type="FileDialog" parent="."]
 auto_translate_mode = 1
-scaling_3d_scale = 1.0
 title = "Open a File"
 size = Vector2i(1086, 360)
 ok_button_text = "Open"

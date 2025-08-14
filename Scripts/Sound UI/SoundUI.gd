@@ -32,7 +32,7 @@ func _ready():
 		connect("focus_entered", _on_hover)
 	elif has_signal("item_focused"):
 		connect("item_focused", _on_hover)
-		
+	
 	if has_signal("toggled"):
 		connect("toggled", _on_press)
 	elif has_signal("pressed"):
