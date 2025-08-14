@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://iqrmm33dxvui" path="res://Scripts/Animatables/GL_Animatronic.gd" id="1_vcqxk"]
 [ext_resource type="Script" uid="uid://60lyan8oproc" path="res://Scripts/Physics_Bones.gd" id="3_aslrn"]
 
-[node name="Chica" type="Node3D" groups=["AA_CHICA"]]
+[node name="Chica" type="Node3D" groups=["AA_CCA"]]
 script = ExtResource("1_vcqxk")
 animParameters = {
 "Armature_001|Arm L Bend": {

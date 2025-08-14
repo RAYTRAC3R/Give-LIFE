@@ -138,13 +138,13 @@ func _sent_signals(anim_name: String, value: float):
 			position.z = initialPos.z + value
 			return
 		"Rotation X":
-			rotation.x = initialRot.x + value
+			rotation.x = initialRot.x + (value*TAU)
 			return
 		"Rotation Y":
-			rotation.y = initialRot.y + value
+			rotation.y = initialRot.y + (value*TAU)
 			return
 		"Rotation Z":
-			rotation.z = initialRot.z + value
+			rotation.z = initialRot.z + (value*TAU)
 			return
 		"Scale X":
 			scale.x = initialScale.x + value

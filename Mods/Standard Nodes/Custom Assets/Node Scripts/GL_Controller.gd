@@ -1,6 +1,5 @@
 extends GL_Node
 
-# Map display name -> input action
 var button_map := {
 	"A": "controller_a",
 	"B": "controller_b",
@@ -27,11 +26,19 @@ func _ready():
 	_create_row("Left Stick Up", null, 0.0, false, 0.0, 0)
 	_create_row("Left Stick Down", null, 0.0, false, 0.0, 0)
 
+	# Left stick magnitude & angle
+	_create_row("Left Stick Magnitude", null, 0.0, false, 0.0, 0)
+	_create_row("Left Stick Angle", null, 0.0, false, 0.0, 0)
+
 	# Right stick separated axes
 	_create_row("Right Stick Left", null, 0.0, false, 0.0, 0)
 	_create_row("Right Stick Right", null, 0.0, false, 0.0, 0)
 	_create_row("Right Stick Up", null, 0.0, false, 0.0, 0)
 	_create_row("Right Stick Down", null, 0.0, false, 0.0, 0)
+
+	# Right stick magnitude & angle
+	_create_row("Right Stick Magnitude", null, 0.0, false, 0.0, 0)
+	_create_row("Right Stick Angle", null, 0.0, false, 0.0, 0)
 
 	# Triggers (float, 0.0 to 1.0)
 	_create_row("Trigger Left", null, 0.0, false, 0.0, 0)
@@ -51,12 +58,20 @@ func _process(delta):
 
 	# ==== LEFT STICK ====
 	var lx := Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
-	var ly := -Input.get_joy_axis(0, JOY_AXIS_LEFT_Y) # invert Y so up is positive
+	var ly := -Input.get_joy_axis(0, JOY_AXIS_LEFT_Y) # up is positive
 
 	rows["Left Stick Left"]["output"] = max(-lx, 0.0)
 	rows["Left Stick Right"]["output"] = max(lx, 0.0)
 	rows["Left Stick Up"]["output"] = max(ly, 0.0)
 	rows["Left Stick Down"]["output"] = max(-ly, 0.0)
+
+	var left_mag = clamp(sqrt(lx * lx + ly * ly), 0.0, 1.0)
+	rows["Left Stick Magnitude"]["output"] = left_mag
+		# angle: 0.0 at down, clockwise, normalized to 0.0–1.0
+	var left_angle = fmod(atan2(lx, -ly) * 180.0 / PI + 360.0, 360.0) / 360.0
+	rows["Left Stick Angle"]["output"] = left_angle
+
+
 
 	# ==== RIGHT STICK ====
 	var rx := Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
@@ -66,6 +81,13 @@ func _process(delta):
 	rows["Right Stick Right"]["output"] = max(rx, 0.0)
 	rows["Right Stick Up"]["output"] = max(ry, 0.0)
 	rows["Right Stick Down"]["output"] = max(-ry, 0.0)
+
+	var right_mag = clamp(sqrt(rx * rx + ry * ry), 0.0, 1.0)
+	rows["Right Stick Magnitude"]["output"] = right_mag
+	var right_angle = fmod(atan2(rx, -ry) * 180.0 / PI + 360.0, 360.0) / 360.0
+	rows["Right Stick Angle"]["output"] = right_angle
+
+
 
 	# ==== TRIGGERS ====
 	var tl_raw := Input.get_joy_axis(0, JOY_AXIS_TRIGGER_LEFT)
@@ -80,7 +102,7 @@ func _process(delta):
 	# ==== VIBRATION ====
 	var vib_intensity = clamp(rows["Vibration Intensity"]["input"], 0.0, 1.0)
 	if vib_intensity > 0.0:
-		Input.start_joy_vibration(0, vib_intensity, vib_intensity, 0) # 0.1s bursts to keep it going
+		Input.start_joy_vibration(0, vib_intensity, vib_intensity, 0)
 	else:
 		Input.stop_joy_vibration(0)
 

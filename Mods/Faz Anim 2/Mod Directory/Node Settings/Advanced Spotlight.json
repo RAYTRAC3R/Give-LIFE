@@ -1,47 +1,47 @@
 {
-  "L_COLOR_A_CHICA": {
-    "color": [0.571163, 0.910449, 0.191508, 1],
-    "intensity": 0.0,
-    "size": 0.3
+  "L_COLOR_A_CCA": {
+	"color": [0.571163, 0.910449, 0.191508, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
-  "L_COLOR_A_FREDDY": {
-    "color": [1, 0.521496, 0.136316, 1],
-    "intensity": 0.0,
-    "size": 0.3
+  "L_COLOR_A_FD": {
+	"color": [1, 0.521496, 0.136316, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
   "L_COLOR_A_GUEST": {
-    "color": [0.792161, 0.282841, 0.989518, 1],
-    "intensity": 0.0,
-    "size": 0.3
+	"color": [0.792161, 0.282841, 0.989518, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
-  "L_COLOR_B_CHICA": {
-    "color": [9.62615e-08, 0.885611, 0.662009, 1],
-    "intensity": 0.0,
-    "size": 0.3
+  "L_COLOR_B_CCA": {
+	"color": [9.62615e-08, 0.885611, 0.662009, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
-  "L_COLOR_B_FREDDY": {
-    "color": [0.908537, 0.21146, 0.158202, 1],
-    "intensity": 0.0,
-    "size": 0.3
+  "L_COLOR_B_FD": {
+	"color": [0.908537, 0.21146, 0.158202, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
   "L_COLOR_B_GUEST": {
-    "color": [0.183399, 0.257872, 1, 1],
-    "intensity": 0.0,
-    "size": 0.3
+	"color": [0.183399, 0.257872, 1, 1],
+	"intensity": 0.0,
+	"size": 0.3
   },
-  "L_SPOT_CHICA": {
-    "color": [1, 0.890592, 0.770118, 1],
-    "intensity": 0.0,
-    "size": 0.15
+  "L_SPOT_CCA": {
+	"color": [1, 0.890592, 0.770118, 1],
+	"intensity": 0.0,
+	"size": 0.15
   },
-  "L_SPOT_FREDDY": {
-    "color": [1, 0.890196, 0.768627, 1],
-    "intensity": 0.0,
-    "size": 0.15
+  "L_SPOT_FD": {
+	"color": [1, 0.890196, 0.768627, 1],
+	"intensity": 0.0,
+	"size": 0.15
   },
   "L_SPOT_GUEST": {
-    "color": [1, 0.890196, 0.768627, 1],
-    "intensity": 0.0,
-    "size": 0.15
+	"color": [1, 0.890196, 0.768627, 1],
+	"intensity": 0.0,
+	"size": 0.15
   }
 }
