@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name GL_Animatable
 
 func _sent_signals(signal_ID:String,the_signal):

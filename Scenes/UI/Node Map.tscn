@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c57u187iciexi"]
+[gd_scene load_steps=16 format=3 uid="uid://c57u187iciexi"]
 
 [ext_resource type="Theme" uid="uid://b3wjoiiv6sq22" path="res://UI/Themes/Theme Node.tres" id="1_aip54"]
 [ext_resource type="Script" uid="uid://i4p62x8fnqpn" path="res://Scripts/GL_Node_Map.gd" id="1_jyqbx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cd1h05xckgmga" path="res://UI/Icons/share-from-square-solid-full.svg" id="8_df00g"]
 [ext_resource type="Texture2D" uid="uid://c7e2wn02ty2xx" path="res://UI/Icons/file-import-solid-full.svg" id="9_ci56e"]
 [ext_resource type="PackedScene" uid="uid://dffakik4vokde" path="res://Scenes/UI/Actions.tscn" id="13_63spv"]
+[ext_resource type="Script" uid="uid://c5kxam0k3beml" path="res://Scripts/Animatables/GL_Speaker.gd" id="14_fnko5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1m68g"]
 shader = ExtResource("2_x1ecx")
@@ -20,6 +21,7 @@ shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_scale = Vector2(1, 1)
 
 [node name="NodeMap" type="Control" groups=["Node Map", "SettingsReceivers"]]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -291,6 +293,11 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.zip")
+
+[node name="Direct Output" type="Node3D" parent="." groups=["DIRECT_OUTPUT"]]
+script = ExtResource("14_fnko5")
+
+[node name="Speaker" type="AudioStreamPlayer" parent="Direct Output"]
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer2/Search" to="Search" method="toggleSearch"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer2/Toggle Background" to="." method="toggle_background"]

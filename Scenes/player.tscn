@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5dh0vxqdur1v"]
+[gd_scene load_steps=6 format=3 uid="uid://c5dh0vxqdur1v"]
 
 [ext_resource type="Script" uid="uid://0g3ls7hffy0" path="res://Scripts/Player/PlayerMovement.gd" id="1_fkybt"]
 [ext_resource type="Material" uid="uid://o4fe7jj6qk7v" path="res://addons/Godot-4-Color-Correction-and-Screen-Effects-main/Materials and Shaders/Shade.tres" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://c5kxam0k3beml" path="res://Scripts/Animatables/GL_Speaker.gd" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://ktqnj6yjrsbn" path="res://UI/Flashlight.png" id="4_8erm5"]
 [ext_resource type="Script" uid="uid://r3akx4cd0pjd" path="res://Scripts/Player/Flashlight.gd" id="5_f1ek2"]
 
@@ -29,11 +28,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Direct Output" type="Node" parent="CharacterBody3D/Camera3D" groups=["DIRECT_OUTPUT"]]
-script = ExtResource("3_3smsa")
-
-[node name="Speaker" type="AudioStreamPlayer" parent="CharacterBody3D/Camera3D/Direct Output"]
 
 [node name="Flashlight" type="SpotLight3D" parent="CharacterBody3D/Camera3D"]
 transform = Transform3D(0.988581, 0.00223086, 0.150674, 0.00378631, 0.999207, -0.0396364, -0.150643, 0.0397543, 0.987789, 0.18008, -0.22295, -0.000120074)

@@ -3,8 +3,16 @@ var anim_tree: AnimationTree
 var blend_tree: AnimationNodeBlendTree
 @export var animParameters: Dictionary
 
+var initialPos: Vector3
+var initialRot: Vector3
+var initialScale: Vector3
+
 # Assuming this node has a child node with an AnimationPlayer
 func _ready():
+	initialPos = position
+	initialRot = rotation
+	initialScale = scale
+	
 	# Grab the AnimationPlayer from the first child
 	var anim_player := get_child(0).get_node("AnimationPlayer") as AnimationPlayer
 	
@@ -117,5 +125,36 @@ func _process(delta):
 
 # Function to set the time of the animation based on a normalized value (0.0 to 1.0)
 func _sent_signals(anim_name: String, value: float):
+	
+	#Non Animations
+	match(anim_name):
+		"Position X":
+			position.x = initialPos.x + value
+			return
+		"Position Y":
+			position.y = initialPos.y + value
+			return
+		"Position Z":
+			position.z = initialPos.z + value
+			return
+		"Rotation X":
+			rotation.x = initialRot.x + value
+			return
+		"Rotation Y":
+			rotation.y = initialRot.y + value
+			return
+		"Rotation Z":
+			rotation.z = initialRot.z + value
+			return
+		"Scale X":
+			scale.x = initialScale.x + value
+			return
+		"Scale Y":
+			scale.y = initialScale.y + value
+			return
+		"Scale Z":
+			scale.z = initialScale.z + value
+			return
+			
 	value = float(value)
 	animParameters[anim_name]["signal_value"] = clamp(value,0,1)

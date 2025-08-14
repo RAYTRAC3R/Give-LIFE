@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://clrd0pn1h5j4b"]
+[gd_scene load_steps=11 format=3 uid="uid://clrd0pn1h5j4b"]
 
+[ext_resource type="Script" uid="uid://ifsfe3g1x8cv" path="res://Scripts/Animatables/GL_Movable.gd" id="1_aji4r"]
 [ext_resource type="PackedScene" uid="uid://ceevf34i7lohs" path="res://Mods/Faz Anim 2/Custom Assets/Models/Props/Mr. Hugs 2.fbx" id="1_kfwm8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfwm8"]
@@ -28,7 +29,8 @@ size = Vector3(0.261963, 0.132614, 0.104736)
 radius = 0.15
 height = 1.32125
 
-[node name="MrHugs2" type="Node3D"]
+[node name="MrHugs2" type="Node3D" groups=["PROP_MRHUGS_2"]]
+script = ExtResource("1_aji4r")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
