@@ -41,7 +41,7 @@ var currentSettings := {
 	"boot_on_start": 0,
 	"show_key_presses": false,
 	"username": "Unknown Author",
-	"master_volume": 100,
+	"master_volume": 1.0,
 	"physics_bones": true,
 	"msaa_3d": Viewport.MSAA_2X,
 	"recent_map": "",
@@ -125,6 +125,9 @@ func _ready():
 	hide_sidebar()
 	
 	load_settings()
+	
+	if currentSettings["master_volume"] > 1.0:
+		currentSettings["master_volume"] = 1.0
 	apply_settings()
 
 	# Apply boot on start options
