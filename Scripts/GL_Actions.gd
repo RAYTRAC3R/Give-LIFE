@@ -78,11 +78,11 @@ func _run_action(displayname: String):
 	var func_name: String = str(action_data["function"])
 	var parameter = action_data.get("parameter", null)
 
-	if not FileAccess.file_exists(script_path):
+	if not ResourceLoader.exists(script_path):
 		push_error("Script not found: " + script_path)
 		return
 
-	var script_resource = load(script_path)
+	var script_resource = ResourceLoader.load(script_path)
 	if not script_resource:
 		push_error("Failed to load script: " + script_path)
 		return
