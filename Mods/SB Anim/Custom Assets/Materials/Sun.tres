@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bxqcbeyk4i38f"]
+
+[ext_resource type="Shader" uid="uid://des8a3glk3x31" path="res://Shaders/Chica.gdshader" id="1_rlcv0"]
+[ext_resource type="Texture2D" uid="uid://cansxes557aie" path="res://Mods/SB Anim/Custom Assets/Textures/TEX_SunMan_BaseColor_output.png" id="2_cmmkt"]
+[ext_resource type="Texture2D" uid="uid://bnrc4uavbcu8f" path="res://Mods/SB Anim/Custom Assets/Textures/Chica_NormalMap.png" id="5_4717c"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rlcv0")
+shader_parameter/diffuse_texture = ExtResource("2_cmmkt")
+shader_parameter/normal_map = ExtResource("5_4717c")
+shader_parameter/normal_scale = 1.0
+shader_parameter/paint_color_r = Color(0.901961, 0.745098, 0.239216, 1)
+shader_parameter/paint_color_g = Color(0.85098, 0.533333, 0.254902, 1)
+shader_parameter/paint_color_b = Color(0.647059, 0.12549, 0.0980392, 1)
+shader_parameter/paint_color_a = Color(0, 0, 0, 1)
+shader_parameter/blacklight_color = Vector3(0.423, 0.361, 0.851)
