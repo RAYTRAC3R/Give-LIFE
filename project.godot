@@ -23,6 +23,10 @@ config/icon="uid://bumrryxwwf62o"
 
 display_server/driver.linuxbsd="wayland"
 
+[dotnet]
+
+project/assembly_name="Give LIFE"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/wigglebone/plugin.cfg")
