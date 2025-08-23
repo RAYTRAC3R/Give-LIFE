@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://des8a3glk3x31" path="res://Shaders/Chica.gdshader" id="1_rlcv0"]
 [ext_resource type="Texture2D" uid="uid://cansxes557aie" path="res://Mods/SB Anim/Custom Assets/Textures/TEX_SunMan_BaseColor_output.png" id="2_cmmkt"]
-[ext_resource type="Texture2D" uid="uid://bnrc4uavbcu8f" path="res://Mods/SB Anim/Custom Assets/Textures/Chica_NormalMap.png" id="5_4717c"]
+[ext_resource type="Texture2D" uid="uid://bnrc4uavbcu8f" path="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica_NormalMap.png" id="5_4717c"]
 
 [resource]
 render_priority = 0
