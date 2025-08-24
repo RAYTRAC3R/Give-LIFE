@@ -9,7 +9,7 @@ Check the !export folder for WIP pck files!
       - [x] Model
       - [ ] Animations
       - [x] Cosmetics
-      - [ ] Physics
+      - [x] Physics
   - Glamrock Freddy
       - [ ] Model
       - [ ] Animations
