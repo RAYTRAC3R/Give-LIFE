@@ -6,6 +6,13 @@
 	"Armature_001|Arm R Turn": 0.0,
 	"Armature_001|Body Lean": 0.0,
 	"Armature_001|Body Turn L": 0.0,
-	"Armature_001|Body Turn R": 0.0
+	"Armature_001|Body Turn R": 0.0,
+	"Armature_001|Rays Shrink": 0.0,
+	"Armature_001|Rays Turn L": 0.0,
+	"Armature_001|Rays Turn R": 0.0,
+	"Armature_001|Neck Turn L": 0.0,
+	"Armature_001|Neck Turn R": 0.0,
+	"Armature_001|Neck Turn Up": 0.0,
+	"Armature_001|Neck Turn Down": 0.0,
 	}
 }

@@ -139,14 +139,13 @@ func _toggle_visibility_recursive(node: Node):
 			else:
 				child.visible = not moon_names.has(child.name)
 		if child is MeshInstance3D:
+			var main_body = node.get_node("Sun") 
 			if moon_toggle:
 				child.set_surface_override_material(0, moon_texture)
-				child.set_surface_override_material(1, moon_eye_texture)
-				child.set_surface_override_material(2, moon_eye_texture)
+				main_body.set_surface_override_material(1, moon_eye_texture)
 			else:
 				child.set_surface_override_material(0, sun_texture)
-				child.set_surface_override_material(1, sun_eye_texture)
-				child.set_surface_override_material(2, sun_eye_texture)
+				main_body.set_surface_override_material(1, sun_eye_texture)
 		# Recursively process all children
 		_toggle_visibility_recursive(child)
 		
