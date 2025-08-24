@@ -2,13 +2,13 @@
 
 [ext_resource type="Shader" uid="uid://des8a3glk3x31" path="res://Shaders/Chica.gdshader" id="1_0gf14"]
 [ext_resource type="Texture2D" uid="uid://4f74snxssimj" path="res://Mods/SB Anim/Custom Assets/Textures/TEX_Moon_Man_Main_BaseColor_output.png" id="2_0gf14"]
-[ext_resource type="Texture2D" uid="uid://bnrc4uavbcu8f" path="res://Mods/Faz Anim 2/Custom Assets/Textures/Chica_NormalMap.png" id="3_idt15"]
+[ext_resource type="Texture2D" uid="uid://xgbp6vsb0r68" path="res://Mods/SB Anim/Custom Assets/Textures/TEX_SunMan_Normal.png" id="3_0gf14"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_0gf14")
 shader_parameter/diffuse_texture = ExtResource("2_0gf14")
-shader_parameter/normal_map = ExtResource("3_idt15")
+shader_parameter/normal_map = ExtResource("3_0gf14")
 shader_parameter/normal_scale = 1.0
 shader_parameter/paint_color_r = Color(0, 0, 0, 1)
 shader_parameter/paint_color_g = Color(0, 0, 0, 1)
