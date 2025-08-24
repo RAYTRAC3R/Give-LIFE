@@ -4,6 +4,8 @@
 	"Armature_001|Arm L Turn": 0.0,
 	"Armature_001|Arm R Bend": 0.0,
 	"Armature_001|Arm R Turn": 0.0,
-	"Armature_001|Body Lean": 0.0
+	"Armature_001|Body Lean": 0.0,
+	"Armature_001|Body Turn L": 0.0,
+	"Armature_001|Body Turn R": 0.0
 	}
 }

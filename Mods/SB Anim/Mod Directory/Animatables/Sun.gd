@@ -146,6 +146,8 @@ var moon_names = ["Hat"]
 
 var sun_texture = load("res://Mods/SB Anim/Custom Assets/Materials/Sun.tres")
 var moon_texture = load("res://Mods/SB Anim/Custom Assets/Materials/Moon.tres")
+var sun_eye_texture = load("res://Mods/SB Anim/Custom Assets/Materials/Sun Eyes.tres")
+var moon_eye_texture = load("res://Mods/SB Anim/Custom Assets/Materials/Moon Eyes.tres")
 
 # Internal toggle state
 var moon_toggle := false
@@ -165,8 +167,12 @@ func _toggle_visibility_recursive(node: Node):
 		if child is MeshInstance3D:
 			if moon_toggle:
 				child.set_surface_override_material(0, moon_texture)
+				child.set_surface_override_material(1, moon_eye_texture)
+				child.set_surface_override_material(2, moon_eye_texture)
 			else:
 				child.set_surface_override_material(0, sun_texture)
+				child.set_surface_override_material(1, sun_eye_texture)
+				child.set_surface_override_material(2, sun_eye_texture)
 		# Recursively process all children
 		_toggle_visibility_recursive(child)
 		
