@@ -1,62 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://btvy4c7pl6x2v"]
 
-[ext_resource type="Script" uid="uid://iqrmm33dxvui" path="res://Scripts/Animatables/GL_Animatronic.gd" id="1_b5i13"]
+[ext_resource type="Script" uid="uid://v6b0ev4vyxsb" path="res://Mods/SB Anim/Mod Directory/Animatables/SB_Animatronic.gd" id="1_b5i13"]
 [ext_resource type="PackedScene" uid="uid://dsx40vq0fld3l" path="res://Mods/SB Anim/Custom Assets/Models/Animatronics/DCA/Sun and Moon.fbx" id="2_5tbvt"]
 [ext_resource type="Script" uid="uid://brcivdxi2tsac" path="res://Mods/SB Anim/Mod Directory/Animatables/Sun.gd" id="3_b5i13"]
 
 [node name="Sun" type="Node3D" groups=["AA_SUN"]]
 script = ExtResource("1_b5i13")
-animParameters = {
-"Armature_001|Arm L Bend": {
-"in_speed": 2.0,
-"out_speed": 3.0,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Arm L Turn": {
-"in_speed": 2.7,
-"out_speed": 3.0,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Arm R Bend": {
-"in_speed": 3.0,
-"out_speed": 2.5,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Arm R Turn": {
-"in_speed": 2.5,
-"out_speed": 1.0,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Body Lean": {
-"in_speed": 2.0,
-"out_speed": 2.5,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Body Turn L": {
-"in_speed": 2.5,
-"out_speed": 2.5,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-},
-"Armature_001|Body Turn R": {
-"in_speed": 2.5,
-"out_speed": 2.5,
-"signal_value": 0.0,
-"type": "standard",
-"value": 0
-}
-}
 
 [node name="Sun and Moon" parent="." instance=ExtResource("2_5tbvt")]
 script = ExtResource("3_b5i13")
