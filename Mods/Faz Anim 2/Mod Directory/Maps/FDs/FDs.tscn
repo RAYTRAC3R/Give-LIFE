@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ktqnj6yjrsbn" path="res://UI/Flashlight.png" id="4_c2ebw"]
 [ext_resource type="Texture2D" uid="uid://dowy3y05fvof4" path="res://Mods/Faz Anim 2/Custom Assets/Textures/pretoria_gardens_2k.exr" id="7_s4vlx"]
 [ext_resource type="LightmapGIData" uid="uid://dmpo1u4oiyrs0" path="res://Mods/Faz Anim 2/Mod Directory/Maps/FDs/FDs. Insidelmbake.lmbake" id="7_u04dm"]
-[ext_resource type="PackedScene" uid="uid://cry2msqosqx0u" path="res://Mods/Faz Anim 2/Mod Directory/Animatables/Chica.tscn" id="8_ey3tq"]
+[ext_resource type="PackedScene" uid="uid://cry2msqosqx0u" path="res://Mods/Faz Anim 2/Mod Directory/Animatables/CCa.tscn" id="8_ey3tq"]
 [ext_resource type="ArrayOccluder3D" uid="uid://p6edmgi2v4kd" path="res://Mods/Faz Anim 2/Mod Directory/Maps/FDs/FDs.occ" id="8_mfnkb"]
 [ext_resource type="Material" uid="uid://d3330uwlgm4d2" path="res://Mods/Faz Anim 2/Custom Assets/Materials/Grass.tres" id="9_8ed8e"]
 [ext_resource type="Script" uid="uid://c5uawj66escut" path="res://Scripts/Animatables/GL_Spotlight.gd" id="9_qjcwm"]
